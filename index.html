@@ -91,18 +91,19 @@
 
     <style>
         :root {
-            --primary: #0284c7;
-            --primary-dark: #0369a1;
-            --accent: #10b981;
-            --warning: #f59e0b;
-            --danger: #ef4444;
+            /* WCAG AA Compliant Color Palette */
+            --primary: #0369a1;         /* Sky 700: 5.6:1 on white, 5.6:1 on #fff text */
+            --primary-dark: #075985;    /* Sky 800 */
+            --accent: #047857;         /* Emerald 700: 5.5:1 on white */
+            --warning: #b45309;        /* Amber 700: 4.6:1 on white */
+            --danger: #b91c1c;         /* Red 700: 5.6:1 on white */
             --bg-page: #f8fafc;
             --surface: #ffffff;
             --surface-hover: #f1f5f9;
-            --border: #e2e8f0;
-            --text-title: #0f172a;
-            --text-body: #334155;
-            --text-muted: #64748b;
+            --border: #cbd5e1;
+            --text-title: #0f172a;      /* Slate 900: 16.5:1 on white */
+            --text-body: #334155;       /* Slate 700: 8.9:1 on white */
+            --text-muted: #475569;      /* Slate 600: 6.9:1 on white */
             --radius-lg: 16px;
             --radius-md: 10px;
             --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.04);
@@ -117,14 +118,14 @@
         .brand svg { width: 28px; height: 28px; fill: var(--primary); }
         .nav-links { display: flex; gap: 1.5rem; list-style: none; }
         .nav-links a { text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 0.95rem; transition: color 0.2s; }
-        .nav-links a:hover, .nav-links a.active { color: var(--primary); }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary); text-decoration: underline; text-underline-offset: 4px; }
 
         main { max-width: 1180px; width: 100%; margin: 2rem auto; padding: 0 1.25rem; flex: 1; }
         
         .hero { text-align: center; margin-bottom: 2.2rem; }
-        .hero-badge { display: inline-flex; align-items: center; gap: 0.4rem; background: #e0f2fe; color: #0369a1; font-size: 0.82rem; font-weight: 700; padding: 0.3rem 0.85rem; border-radius: 9999px; margin-bottom: 0.8rem; border: 1px solid #bae6fd; }
+        .hero-badge { display: inline-flex; align-items: center; gap: 0.4rem; background: #e0f2fe; color: #075985; font-size: 0.85rem; font-weight: 700; padding: 0.35rem 0.95rem; border-radius: 9999px; margin-bottom: 0.8rem; border: 1px solid #bae6fd; }
         .hero h1 { font-size: 2.4rem; font-weight: 900; color: var(--text-title); margin-bottom: 0.5rem; letter-spacing: -0.5px; }
-        .hero p { color: var(--text-muted); font-size: 1.1rem; max-width: 760px; margin: 0 auto; }
+        .hero p { color: var(--text-body); font-size: 1.1rem; max-width: 760px; margin: 0 auto; }
 
         /* Benchmark Tool Card */
         .tool-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.8rem; box-shadow: var(--shadow); margin-bottom: 3.5rem; }
@@ -132,12 +133,13 @@
         .toolbar { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem; }
         .btn-group { display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap; }
         
-        .btn-run { background: var(--primary); color: #fff; border: none; padding: 0.75rem 1.8rem; border-radius: var(--radius-md); font-size: 1rem; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.2s; box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25); }
+        .btn-run { background: var(--primary); color: #ffffff; border: none; padding: 0.75rem 1.8rem; border-radius: var(--radius-md); font-size: 1rem; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.2s; box-shadow: 0 4px 12px rgba(3, 105, 161, 0.25); }
         .btn-run:hover { background: var(--primary-dark); transform: translateY(-1px); }
-        .btn-run:disabled { opacity: 0.6; cursor: not-allowed; transform: none; box-shadow: none; }
+        .btn-run:disabled { opacity: 0.65; cursor: not-allowed; transform: none; box-shadow: none; }
 
         .btn-csv { background: #f8fafc; border: 1px solid var(--border); color: var(--text-title); padding: 0.75rem 1.2rem; border-radius: var(--radius-md); font-size: 0.92rem; font-weight: 600; cursor: pointer; transition: all 0.2s; }
-        .btn-csv:hover { background: #e2e8f0; }
+        .btn-csv:hover:not(:disabled) { background: #e2e8f0; }
+        .btn-csv:disabled { opacity: 0.5; cursor: not-allowed; }
 
         .search-box { position: relative; min-width: 260px; }
         .search-box input { width: 100%; background: #ffffff; border: 1px solid var(--border); border-radius: var(--radius-md); padding: 0.65rem 0.95rem; color: var(--text-title); font-size: 0.92rem; outline: none; transition: border-color 0.2s; }
@@ -146,38 +148,39 @@
         /* Progress Bar */
         .progress-box { display: none; margin-bottom: 1.5rem; }
         .progress-bar-bg { background: #e2e8f0; height: 8px; border-radius: 4px; overflow: hidden; margin-top: 6px; }
-        .progress-bar-fill { background: linear-gradient(90deg, var(--primary), #38bdf8); height: 100%; width: 0%; transition: width 0.2s; }
+        .progress-bar-fill { background: linear-gradient(90deg, var(--primary), #0284c7); height: 100%; width: 0%; transition: width 0.2s; }
 
         /* Table */
         .table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: var(--radius-md); }
         table.dns-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.92rem; }
-        table.dns-table th { background: #f8fafc; color: var(--text-muted); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; padding: 0.95rem 1.1rem; border-bottom: 2px solid var(--border); white-space: nowrap; }
+        table.dns-table th { background: #f8fafc; color: var(--text-muted); font-size: 0.82rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; padding: 0.95rem 1.1rem; border-bottom: 2px solid var(--border); white-space: nowrap; }
         table.dns-table td { padding: 0.9rem 1.1rem; border-bottom: 1px solid var(--border); vertical-align: middle; }
         table.dns-table tr:hover td { background: var(--surface-hover); }
 
         /* Fastest Server Highlight */
-        table.dns-table tr.fastest-row td { background: #f0fdf4 !important; }
-        table.dns-table tr.fastest-row { border-left: 4px solid #10b981; }
+        table.dns-table tr.fastest-row td { background: #ecfdf5 !important; }
+        table.dns-table tr.fastest-row { border-left: 5px solid #047857; }
 
-        .resolver-info { display: flex; flex-direction: column; gap: 0.2rem; }
-        .resolver-name { font-weight: 700; color: var(--text-title); display: flex; align-items: center; gap: 0.5rem; font-size: 0.98rem; }
-        .resolver-ips { font-size: 0.82rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; color: var(--text-muted); display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap; }
+        .resolver-info { display: flex; flex-direction: column; gap: 0.25rem; }
+        .resolver-name { font-weight: 800; color: var(--text-title); display: flex; align-items: center; gap: 0.5rem; font-size: 0.98rem; }
+        .resolver-ips { font-size: 0.85rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; color: var(--text-muted); display: flex; align-items: center; gap: 0.45rem; flex-wrap: wrap; }
         
-        .btn-copy { background: #e0f2fe; border: 1px solid #bae6fd; color: var(--primary); border-radius: 4px; padding: 0.1rem 0.45rem; font-size: 0.72rem; font-weight: 600; cursor: pointer; transition: all 0.15s; }
+        .btn-copy { background: #e0f2fe; border: 1px solid #bae6fd; color: #075985; border-radius: 4px; padding: 0.15rem 0.5rem; font-size: 0.75rem; font-weight: 700; cursor: pointer; transition: all 0.15s; }
         .btn-copy:hover { background: var(--primary); color: #ffffff; }
 
-        .badge-fastest { background: #10b981; color: #ffffff; font-size: 0.72rem; font-weight: 800; padding: 0.15rem 0.55rem; border-radius: 9999px; display: inline-flex; align-items: center; gap: 0.25rem; letter-spacing: 0.3px; }
+        .badge-fastest { background: #047857; color: #ffffff; font-size: 0.75rem; font-weight: 800; padding: 0.2rem 0.6rem; border-radius: 9999px; display: inline-flex; align-items: center; gap: 0.25rem; letter-spacing: 0.3px; }
 
         .stat-val { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.95rem; font-weight: 700; font-variant-numeric: tabular-nums; }
-        .stat-val.fast { color: #059669; }
-        .stat-val.moderate { color: #d97706; }
-        .stat-val.slow { color: #dc2626; }
+        .stat-val.fast { color: var(--accent); }
+        .stat-val.moderate { color: var(--warning); }
+        .stat-val.slow { color: var(--danger); }
         .stat-val.pending { color: var(--text-muted); font-weight: 400; }
 
-        .pill-status { font-size: 0.76rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 9999px; text-transform: uppercase; display: inline-flex; align-items: center; }
-        .pill-stable { background: #dcfce7; color: #15803d; border: 1px solid #bbf7d0; }
-        .pill-testing { background: #e0f2fe; color: #0284c7; }
-        .pill-failed { background: #fee2e2; color: #b91c1c; }
+        .pill-status { font-size: 0.78rem; font-weight: 800; padding: 0.25rem 0.65rem; border-radius: 9999px; text-transform: uppercase; display: inline-flex; align-items: center; }
+        .pill-idle { background: #f1f5f9; color: #334155; border: 1px solid #cbd5e1; }
+        .pill-stable { background: #dcfce7; color: #166534; border: 1px solid #86efac; }
+        .pill-testing { background: #e0f2fe; color: #075985; border: 1px solid #bae6fd; }
+        .pill-failed { background: #fee2e2; color: #991b1b; border: 1px solid #fca5a5; }
 
         /* SEO Long Article */
         .seo-box { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2.8rem 2.4rem; margin-bottom: 3.5rem; box-shadow: var(--shadow); }
@@ -186,7 +189,7 @@
         .seo-box p { margin-bottom: 1.2rem; font-size: 1.02rem; text-align: justify; }
         .seo-box ul, .seo-box ol { padding-left: 2rem; margin-bottom: 1.5rem; }
         .seo-box li { margin-bottom: 0.55rem; }
-        .seo-box code { background: #f1f5f9; padding: 0.2rem 0.45rem; border-radius: 4px; font-family: ui-monospace, monospace; color: #0369a1; font-size: 0.9em; }
+        .seo-box code { background: #f1f5f9; padding: 0.2rem 0.45rem; border-radius: 4px; font-family: ui-monospace, monospace; color: #075985; font-size: 0.9em; border: 1px solid #e2e8f0; }
 
         footer { background: var(--surface); border-top: 1px solid var(--border); padding: 2.2rem 1.5rem; margin-top: auto; }
         .footer-inner { max-width: 1180px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
@@ -209,7 +212,7 @@
     <header>
         <div class="nav-wrap">
             <a href="/" class="brand">
-                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
                 <span>DNS Speed Test</span>
             </a>
             <ul class="nav-links">
@@ -231,18 +234,18 @@
             <div class="toolbar">
                 <div class="btn-group">
                     <button class="btn-run" id="startBtn">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                         <span>Run Speed Test</span>
                     </button>
                     <button class="btn-csv" id="exportBtn" disabled>Export CSV</button>
                 </div>
                 <div class="search-box">
-                    <input type="text" id="searchInput" placeholder="Filter by name, country, or IP...">
+                    <input type="text" id="searchInput" placeholder="Filter by name, country, or IP..." aria-label="Filter DNS servers">
                 </div>
             </div>
 
             <div class="progress-box" id="progressBox">
-                <div style="display:flex; justify-content:space-between; font-size:0.85rem; font-weight:600; color:var(--text-muted); margin-bottom:4px;">
+                <div style="display:flex; justify-content:space-between; font-size:0.85rem; font-weight:700; color:var(--text-body); margin-bottom:4px;">
                     <span id="progressStatus">Starting benchmark...</span>
                     <span id="progressPercent">0%</span>
                 </div>
@@ -255,12 +258,12 @@
                 <table class="dns-table">
                     <thead>
                         <tr>
-                            <th>DNS Server</th>
-                            <th>Status</th>
-                            <th>Min</th>
-                            <th>Median (P50)</th>
-                            <th>Avg</th>
-                            <th>Max</th>
+                            <th scope="col">DNS Server</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Min</th>
+                            <th scope="col">Median (P50)</th>
+                            <th scope="col">Avg</th>
+                            <th scope="col">Max</th>
                         </tr>
                     </thead>
                     <tbody id="tableBody">
@@ -310,14 +313,14 @@
     <footer>
         <div class="footer-inner">
             <div class="footer-brand">DNS <span>Speed Test</span></div>
-            <div class="footer-copy">&copy;  DNS Speed Test &mdash; Real-time client-side DNS benchmarking.</div>
+            <div class="footer-copy">&copy; DNS Speed Test &mdash; Real-time client-side DNS benchmarking.</div>
         </div>
     </footer>
 
     <div id="toast">Copied to clipboard! &check;</div>
 
     <script>
-        // 23 Reliable, Active Global DNS Resolvers (failing providers removed)
+        // 23 Reliable, Active Global DNS Resolvers
         const dnsResolvers = [
             { flag: "🇺🇸", name: "Cloudflare", ip1: "1.1.1.1", ip2: "1.0.0.1", endpoint: "https://cloudflare-dns.com/dns-query" },
             { flag: "🇺🇸", name: "Google", ip1: "8.8.8.8", ip2: "8.8.4.4", endpoint: "https://dns.google/dns-query" },
@@ -423,7 +426,7 @@
                     tr.className = "fastest-row";
                 }
 
-                let statusHtml = `<span class="pill-status" style="background:#f1f5f9; color:#64748b">Idle</span>`;
+                let statusHtml = `<span class="pill-status pill-idle">Idle</span>`;
                 if (item.testing) {
                     statusHtml = `<span class="pill-status pill-testing">Probing...</span>`;
                 } else if (item.status === "Stable") {
@@ -447,8 +450,8 @@
                             </div>
                             <div class="resolver-ips">
                                 <span>${item.ip1}</span>
-                                <button class="btn-copy" onclick="copyIp('${item.ip1}')">Copy</button>
-                                ${item.ip2 ? `<span>, ${item.ip2}</span><button class="btn-copy" onclick="copyIp('${item.ip2}')">Copy</button>` : ''}
+                                <button class="btn-copy" onclick="copyIp('${item.ip1}')" aria-label="Copy ${item.ip1}">Copy</button>
+                                ${item.ip2 ? `<span>, ${item.ip2}</span><button class="btn-copy" onclick="copyIp('${item.ip2}')" aria-label="Copy ${item.ip2}">Copy</button>` : ''}
                             </div>
                         </div>
                     </td>
@@ -465,12 +468,11 @@
         renderTable();
         searchInput.addEventListener("input", renderTable);
 
-        // Robust Probe Engine with Dual-Fallback (Standard Fetch + No-CORS Fallback)
+        // Probe Engine with dual-fallback
         async function probeServer(endpoint) {
             const sep = endpoint.includes("?") ? "&" : "?";
             const url = `${endpoint}${sep}dns=${globalQueryB64}`;
 
-            // Try 1: Standard fetch
             const controller = new AbortController();
             const timer = setTimeout(() => controller.abort(), 4000);
             const t0 = performance.now();
@@ -485,7 +487,6 @@
                 return Math.round(performance.now() - t0);
             } catch (err) {
                 clearTimeout(timer);
-                // Fallback to opaque probe if browser blocks cross-origin reading
                 if (err.name !== "AbortError") {
                     try {
                         const c2 = new AbortController();
@@ -513,7 +514,6 @@
             progressBox.style.display = "block";
             progressBar.style.width = "0%";
 
-            // Clear previous fastest mark
             stateData.forEach(item => item.isFastest = false);
 
             const total = stateData.length;
@@ -546,7 +546,6 @@
                     item.max = Math.max(...samples);
                     item.avg = samples.reduce((a, b) => a + b, 0) / samples.length;
 
-                    // Compute Median
                     samples.sort((a, b) => a - b);
                     const mid = Math.floor(samples.length / 2);
                     item.median = samples.length % 2 !== 0 ? samples[mid] : (samples[mid - 1] + samples[mid]) / 2;
@@ -561,14 +560,12 @@
                 renderTable();
             }
 
-            // Auto-sort table by lowest Avg Latency
             stateData.sort((a, b) => {
                 if (a.avg === null) return 1;
                 if (b.avg === null) return -1;
                 return a.avg - b.avg;
             });
 
-            // Mark the fastest resolver
             const winner = stateData.find(item => item.avg !== null);
             if (winner) {
                 winner.isFastest = true;
