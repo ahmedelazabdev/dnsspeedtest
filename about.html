@@ -48,18 +48,19 @@
 
     <style>
         :root {
-            --primary: #0284c7;
-            --primary-dark: #0369a1;
-            --accent: #10b981;
-            --warning: #f59e0b;
-            --danger: #ef4444;
+            /* WCAG AA Compliant Color Palette */
+            --primary: #0369a1;         /* Sky 700: 5.6:1 contrast on white */
+            --primary-dark: #075985;    /* Sky 800 */
+            --accent: #047857;         /* Emerald 700: 5.5:1 on white */
+            --warning: #b45309;        /* Amber 700 */
+            --danger: #b91c1c;         /* Red 700 */
             --bg-page: #f8fafc;
             --surface: #ffffff;
             --surface-hover: #f1f5f9;
-            --border: #e2e8f0;
-            --text-title: #0f172a;
-            --text-body: #334155;
-            --text-muted: #64748b;
+            --border: #cbd5e1;
+            --text-title: #0f172a;      /* Slate 900: 16.5:1 contrast */
+            --text-body: #334155;       /* Slate 700: 8.9:1 contrast */
+            --text-muted: #475569;      /* Slate 600: 6.9:1 contrast */
             --radius-lg: 16px;
             --radius-md: 10px;
             --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.04);
@@ -74,24 +75,24 @@
         .brand svg { width: 28px; height: 28px; fill: var(--primary); }
         .nav-links { display: flex; gap: 1.5rem; list-style: none; }
         .nav-links a { text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 0.95rem; transition: color 0.2s; }
-        .nav-links a:hover, .nav-links a.active { color: var(--primary); }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary); text-decoration: underline; text-underline-offset: 4px; }
 
         main { max-width: 960px; width: 100%; margin: 2rem auto; padding: 0 1.25rem; flex: 1; }
         
         .hero { text-align: center; margin-bottom: 2.2rem; }
-        .hero-badge { display: inline-flex; align-items: center; gap: 0.4rem; background: #e0f2fe; color: #0369a1; font-size: 0.82rem; font-weight: 700; padding: 0.3rem 0.85rem; border-radius: 9999px; margin-bottom: 0.8rem; border: 1px solid #bae6fd; }
+        .hero-badge { display: inline-flex; align-items: center; gap: 0.4rem; background: #e0f2fe; color: #075985; font-size: 0.85rem; font-weight: 700; padding: 0.35rem 0.95rem; border-radius: 9999px; margin-bottom: 0.8rem; border: 1px solid #bae6fd; }
         .hero h1 { font-size: 2.4rem; font-weight: 900; color: var(--text-title); margin-bottom: 0.5rem; letter-spacing: -0.5px; }
-        .hero p { color: var(--text-muted); font-size: 1.1rem; max-width: 720px; margin: 0 auto; }
+        .hero p { color: var(--text-body); font-size: 1.1rem; max-width: 720px; margin: 0 auto; }
 
         .content-box { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2.8rem 2.4rem; margin-bottom: 3.5rem; box-shadow: var(--shadow); }
         .content-box h2 { font-size: 1.65rem; color: var(--text-title); margin: 2.2rem 0 0.9rem; border-left: 5px solid var(--primary); padding-left: 0.9rem; }
         .content-box p { margin-bottom: 1.25rem; font-size: 1.02rem; text-align: justify; }
         .content-box ul { padding-left: 2rem; margin-bottom: 1.5rem; }
         .content-box li { margin-bottom: 0.65rem; font-size: 1.01rem; }
-        .content-box code { background: #f1f5f9; padding: 0.2rem 0.45rem; border-radius: 4px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; color: #0369a1; font-size: 0.9em; }
+        .content-box code { background: #f1f5f9; padding: 0.2rem 0.45rem; border-radius: 4px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; color: #075985; font-size: 0.9em; border: 1px solid #e2e8f0; }
 
-        .highlight-box { background: #f0fdf4; border-left: 4px solid var(--accent); padding: 1.2rem 1.4rem; border-radius: 0 var(--radius-md) var(--radius-md) 0; margin: 1.8rem 0; }
-        .highlight-box p { margin: 0; color: #166534; font-weight: 600; font-size: 0.98rem; }
+        .highlight-box { background: #ecfdf5; border-left: 4px solid var(--accent); padding: 1.2rem 1.4rem; border-radius: 0 var(--radius-md) var(--radius-md) 0; margin: 1.8rem 0; border-top: 1px solid #d1fae5; border-right: 1px solid #d1fae5; border-bottom: 1px solid #d1fae5; }
+        .highlight-box p { margin: 0; color: #065f46; font-weight: 700; font-size: 0.98rem; }
 
         footer { background: var(--surface); border-top: 1px solid var(--border); padding: 2.2rem 1.5rem; margin-top: auto; }
         .footer-inner { max-width: 1180px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
@@ -110,7 +111,7 @@
     <header>
         <div class="nav-wrap">
             <a href="/" class="brand">
-                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
                 <span>DNS Speed Test</span>
             </a>
             <ul class="nav-links">
@@ -160,7 +161,7 @@
     <footer>
         <div class="footer-inner">
             <div class="footer-brand">DNS <span>Speed Test</span></div>
-            <div class="footer-copy">&copy;  DNS Speed Test &mdash; Real-time client-side DNS benchmarking.</div>
+            <div class="footer-copy">&copy; DNS Speed Test &mdash; Real-time client-side DNS benchmarking.</div>
         </div>
     </footer>
 
