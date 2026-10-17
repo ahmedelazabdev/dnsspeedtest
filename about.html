@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | DNS Speed Test Benchmark</title>
-    <meta name="description" content="Learn more about the DNS Speed Test project, our browser-based benchmarking methodology, and our commitment to objective internet performance metrics.">
+    <title>About Us & Testing Methodology | DNS Speed Test</title>
+    <meta name="description" content="Discover our scientific, client-side testing methodology for benchmarking DNS latency, jitter, and Anycast network performance.">
     <link rel="canonical" href="https://yourusername.github.io/about.html">
     <style>
         :root {
@@ -28,16 +28,16 @@
         .nav-links a { text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 0.95rem; }
         .nav-links a:hover, .nav-links a.active { color: var(--primary); }
 
-        main { max-width: 900px; width: 100%; margin: 2.5rem auto; padding: 0 1.25rem; flex: 1; }
+        main { max-width: 920px; width: 100%; margin: 2.5rem auto; padding: 0 1.25rem; flex: 1; }
         .hero { text-align: center; margin-bottom: 2rem; }
-        .hero h1 { font-size: 2.2rem; color: var(--text-title); margin-bottom: 0.5rem; }
+        .hero h1 { font-size: 2.4rem; color: var(--text-title); margin-bottom: 0.5rem; font-weight: 800; }
         .hero p { color: var(--text-muted); font-size: 1.1rem; }
 
-        .content-box { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2.5rem; margin-bottom: 2rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.03); }
-        .content-box h2 { font-size: 1.5rem; color: var(--text-title); margin: 1.8rem 0 0.8rem; border-left: 4px solid var(--primary); padding-left: 0.8rem; }
-        .content-box p { margin-bottom: 1.2rem; font-size: 1.02rem; text-align: justify; }
-        .content-box ul { padding-left: 1.8rem; margin-bottom: 1.4rem; }
-        .content-box li { margin-bottom: 0.6rem; }
+        .content-box { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2.8rem; margin-bottom: 2rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.03); }
+        .content-box h2 { font-size: 1.6rem; color: var(--text-title); margin: 2rem 0 0.8rem; border-left: 4px solid var(--primary); padding-left: 0.8rem; }
+        .content-box p { margin-bottom: 1.25rem; font-size: 1.05rem; text-align: justify; }
+        .content-box ul { padding-left: 1.8rem; margin-bottom: 1.5rem; }
+        .content-box li { margin-bottom: 0.6rem; font-size: 1rem; }
 
         footer { background: var(--surface); border-top: 1px solid var(--border); padding: 2rem 1.5rem; margin-top: auto; }
         .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
@@ -64,29 +64,30 @@
 
     <main>
         <div class="hero">
-            <h1>About DNS Speed Test</h1>
-            <p>An open, neutral network diagnostic utility helping everyday users discover the fastest DNS resolvers for their location.</p>
+            <h1>About Our Benchmarking Architecture</h1>
+            <p>Empowering internet users worldwide with transparent, client-side network diagnostics.</p>
         </div>
 
         <article class="content-box">
-            <h2>Our Mission</h2>
+            <h2>Our Core Mission</h2>
             <p>
-                The <strong>DNS Speed Test</strong> initiative was launched to empower internet users worldwide to make data-driven decisions about their network configuration. Most internet subscribers default to the DNS resolvers provided by their local ISPs, which are frequently slow, congested, and vulnerable to outages and aggressive advertising injection.
+                <strong>DNS Speed Test</strong> was founded on a simple principle: internet users deserve total transparency into their network routing performance. The overwhelming majority of internet consumers remain locked into the default recursive resolvers operated by their local Internet Service Providers (ISPs). These ISP servers are routinely under-provisioned, vulnerable to DNS cache poisoning attacks, and frequently used to collect and monetize browsing records.
             </p>
 
-            <h2>Benchmarking Methodology</h2>
+            <h2>Scientific Client-Side Methodology</h2>
             <p>
-                Unlike synthetic server-side tests that measure latency from remote datacenters, our benchmark executes <strong>directly inside your web browser</strong>:
+                Unlike server-side synthetic testing tools that measure resolver latency from static cloud datacenters (such as AWS us-east-1), our benchmarking tool executes <strong>100% inside your local web browser</strong>:
             </p>
             <ul>
-                <li><strong>Real Client-Side Measurements:</strong> Probes are sent directly from your unique local ISP connection and geographical location.</li>
-                <li><strong>DNS-over-HTTPS (DoH) API Probes:</strong> We leverage official DoH endpoints provided by Cloudflare, Google, Quad9, AdGuard, and Alibaba.</li>
-                <li><strong>Anti-Caching Randomization:</strong> Every probe request utilizes a unique, randomized sub-domain challenge to bypass local browser caches and measure genuine network transit time.</li>
+                <li><strong>Local Peering Accuracy:</strong> Probes originate directly from your physical device through your local ISP, reflecting authentic transit and peering hops.</li>
+                <li><strong>TCP/TLS Warm-Up Protocol:</strong> We execute an un-timed pre-flight probe to establish TLS handshakes and socket reuse, eliminating cold-start bias from final latency calculations.</li>
+                <li><strong>Anti-Cache Randomization:</strong> Every query dispatches an un-cached random challenge subdomain (e.g., <code>bench-x8a92.cloudflare.com</code>) to force authentic round-trip resolution.</li>
+                <li><strong>Jitter & Statistical Stability:</strong> We measure consecutive probe delta variations, highlighting servers prone to latency spikes.</li>
             </ul>
 
-            <h2>Technical Independence</h2>
+            <h2>Independent & Unbiased Testing</h2>
             <p>
-                We maintain complete neutrality. We are not owned by, affiliated with, or funded by any DNS service provider. Rankings are generated purely on measured mathematical latency (Round-Trip Time) in milliseconds.
+                We do not accept financial compensation, paid placements, or sponsorship from any DNS provider. All benchmark results are ranked strictly on measured Round-Trip Times (RTT) in milliseconds.
             </p>
         </article>
     </main>
