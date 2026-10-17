@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DNS Speed Test & Latency Benchmark | Test 26+ Global Resolvers</title>
-    <meta name="description" content="Free browser-based DNS Speed Test benchmark. Measure real-time latency, jitter, Min, Median, and Max across 26+ global DNS resolvers including Cloudflare, Google, Quad9, AdGuard, and OpenDNS.">
-    <meta name="keywords" content="dns speed test, fastest dns, dns benchmark, test dns latency, cloudflare vs google dns, public dns servers, best dns for gaming, doh speed test">
+    <title>DNS Speed Test & Latency Benchmark | Find the Fastest DNS Server Online</title>
+    <meta name="description" content="Free online DNS Speed Test benchmark. Measure real-time latency, jitter, Min, Median, and Max across 23 top public DNS resolvers including Cloudflare, Google, Quad9, AdGuard, and OpenDNS.">
+    <meta name="keywords" content="dns speed test, fastest dns, dns benchmark, test dns latency, cloudflare vs google dns, public dns servers, best dns for gaming">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
     <link rel="canonical" href="https://yourusername.github.io/">
 
     <!-- Open Graph -->
     <meta property="og:locale" content="en_US">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="DNS Speed Test | Benchmark 26+ Public DNS Resolvers in Real-Time">
-    <meta property="og:description" content="Test Min, Median, Avg, and Max response times of 26+ DNS-over-HTTPS servers directly from your browser.">
+    <meta property="og:title" content="DNS Speed Test | Benchmark & Find the Fastest DNS Resolver">
+    <meta property="og:description" content="Measure DNS lookup latency in real time. Compare Min, Median, Avg, and Max across top global Anycast resolvers.">
     <meta property="og:url" content="https://yourusername.github.io/">
 
     <!-- Schema.org Markup -->
@@ -23,7 +23,7 @@
       "@graph": [
         {
           "@type": "SoftwareApplication",
-          "name": "Global DNS Speed Test Benchmark",
+          "name": "DNS Speed Test Benchmark Tool",
           "applicationCategory": "NetworkingApplication",
           "operatingSystem": "All",
           "browserRequirements": "Requires JavaScript",
@@ -35,22 +35,52 @@
           }
         },
         {
+          "@type": "HowTo",
+          "name": "How to Benchmark and Choose the Fastest DNS Server",
+          "description": "Step-by-step guide to testing DNS latency and configuring the best resolver on your system.",
+          "step": [
+            {
+              "@type": "HowToStep",
+              "name": "Start Benchmark",
+              "text": "Click the 'Run Speed Test' button to query global DNS-over-HTTPS endpoints directly from your browser."
+            },
+            {
+              "@type": "HowToStep",
+              "name": "Compare Latency Metrics",
+              "text": "Analyze the real-time Min, Median (P50), and Avg response times sorted automatically from fastest to slowest."
+            },
+            {
+              "@type": "HowToStep",
+              "name": "Copy and Apply DNS",
+              "text": "Copy the IPv4 addresses of the resolver marked as 'FASTEST' and update your operating system or router settings."
+            }
+          ]
+        },
+        {
           "@type": "FAQPage",
           "mainEntity": [
             {
               "@type": "Question",
-              "name": "How does this in-browser DNS speed test work without timeouts?",
+              "name": "Does changing DNS improve my download speed?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "The tool constructs native RFC 8484 DNS binary wireformat queries directly in JavaScript and measures true Round-Trip Time (RTT) through DNS-over-HTTPS endpoints with connection priming."
+                "text": "DNS does not change your raw maximum bandwidth, but it substantially reduces lookup latency and Time to First Byte (TTFB) when opening websites, making your internet feel instantly responsive."
               }
             },
             {
               "@type": "Question",
-              "name": "What is the difference between Min, Median, and Avg latency?",
+              "name": "What is the fastest public DNS server in the world?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Min represents optimal edge routing. Median (P50) reflects typical everyday browsing response times without outlier bias, while Avg shows mathematical mean across all probe iterations."
+                "text": "Cloudflare (1.1.1.1) and Google Public DNS (8.8.8.8) consistently rank as top performers worldwide due to extensive global Anycast edge routing."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is Median (P50) and why is it useful?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The Median represents the middle response value of all tests, showing your authentic everyday browsing speed without being skewed by temporary network spikes."
               }
             }
           ]
@@ -66,99 +96,112 @@
             --accent: #10b981;
             --warning: #f59e0b;
             --danger: #ef4444;
-            --bg-page: #0f172a;
-            --surface: #1e293b;
-            --surface-hover: #243447;
-            --border: #334155;
-            --text-title: #f8fafc;
-            --text-body: #cbd5e1;
-            --text-muted: #94a3b8;
-            --radius-lg: 14px;
-            --radius-md: 8px;
+            --bg-page: #f8fafc;
+            --surface: #ffffff;
+            --surface-hover: #f1f5f9;
+            --border: #e2e8f0;
+            --text-title: #0f172a;
+            --text-body: #334155;
+            --text-muted: #64748b;
+            --radius-lg: 16px;
+            --radius-md: 10px;
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.04);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-        body { background-color: var(--bg-page); color: var(--text-body); line-height: 1.6; min-height: 100vh; display: flex; flex-direction: column; }
+        body { background-color: var(--bg-page); color: var(--text-body); line-height: 1.7; min-height: 100vh; display: flex; flex-direction: column; }
 
-        header { background: var(--surface); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
-        .nav-wrap { max-width: 1200px; margin: 0 auto; padding: 0.85rem 1.25rem; display: flex; justify-content: space-between; align-items: center; }
-        .brand { font-size: 1.25rem; font-weight: 800; color: #38bdf8; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; }
-        .brand svg { width: 26px; height: 26px; fill: #38bdf8; }
-        .nav-links { display: flex; gap: 1.2rem; list-style: none; }
-        .nav-links a { text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 0.9rem; transition: color 0.2s; }
-        .nav-links a:hover, .nav-links a.active { color: #38bdf8; }
+        header { background: var(--surface); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; backdrop-filter: blur(8px); }
+        .nav-wrap { max-width: 1180px; margin: 0 auto; padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; }
+        .brand { font-size: 1.35rem; font-weight: 800; color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; }
+        .brand svg { width: 28px; height: 28px; fill: var(--primary); }
+        .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+        .nav-links a { text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 0.95rem; transition: color 0.2s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary); }
 
-        main { max-width: 1200px; width: 100%; margin: 1.5rem auto; padding: 0 1rem; flex: 1; }
+        main { max-width: 1180px; width: 100%; margin: 2rem auto; padding: 0 1.25rem; flex: 1; }
         
-        .hero { text-align: center; margin-bottom: 2rem; }
-        .hero-badge { display: inline-flex; align-items: center; gap: 0.35rem; background: rgba(56, 189, 248, 0.15); color: #38bdf8; font-size: 0.8rem; font-weight: 700; padding: 0.25rem 0.75rem; border-radius: 9999px; margin-bottom: 0.75rem; border: 1px solid rgba(56, 189, 248, 0.3); }
-        .hero h1 { font-size: 2.2rem; font-weight: 900; color: var(--text-title); margin-bottom: 0.5rem; letter-spacing: -0.5px; }
-        .hero p { color: var(--text-muted); font-size: 1.05rem; max-width: 760px; margin: 0 auto; }
+        .hero { text-align: center; margin-bottom: 2.2rem; }
+        .hero-badge { display: inline-flex; align-items: center; gap: 0.4rem; background: #e0f2fe; color: #0369a1; font-size: 0.82rem; font-weight: 700; padding: 0.3rem 0.85rem; border-radius: 9999px; margin-bottom: 0.8rem; border: 1px solid #bae6fd; }
+        .hero h1 { font-size: 2.4rem; font-weight: 900; color: var(--text-title); margin-bottom: 0.5rem; letter-spacing: -0.5px; }
+        .hero p { color: var(--text-muted); font-size: 1.1rem; max-width: 760px; margin: 0 auto; }
 
-        /* Benchmark Tool Section */
-        .tool-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.5rem; margin-bottom: 3rem; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3); }
+        /* Benchmark Tool Card */
+        .tool-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.8rem; box-shadow: var(--shadow); margin-bottom: 3.5rem; }
         
-        .toolbar { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.2rem; }
-        .btn-group { display: flex; gap: 0.6rem; align-items: center; flex-wrap: wrap; }
+        .toolbar { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem; }
+        .btn-group { display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap; }
         
-        .btn-run { background: #0284c7; color: #fff; border: none; padding: 0.7rem 1.6rem; border-radius: var(--radius-md); font-size: 0.98rem; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.2s; }
-        .btn-run:hover { background: #0369a1; }
-        .btn-run:disabled { opacity: 0.5; cursor: not-allowed; }
+        .btn-run { background: var(--primary); color: #fff; border: none; padding: 0.75rem 1.8rem; border-radius: var(--radius-md); font-size: 1rem; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.2s; box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25); }
+        .btn-run:hover { background: var(--primary-dark); transform: translateY(-1px); }
+        .btn-run:disabled { opacity: 0.6; cursor: not-allowed; transform: none; box-shadow: none; }
 
-        .btn-csv { background: transparent; border: 1px solid var(--border); color: var(--text-body); padding: 0.7rem 1.1rem; border-radius: var(--radius-md); font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: all 0.2s; }
-        .btn-csv:hover { background: var(--surface-hover); border-color: #64748b; }
+        .btn-csv { background: #f8fafc; border: 1px solid var(--border); color: var(--text-title); padding: 0.75rem 1.2rem; border-radius: var(--radius-md); font-size: 0.92rem; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+        .btn-csv:hover { background: #e2e8f0; }
 
-        .search-box { position: relative; min-width: 250px; }
-        .search-box input { width: 100%; background: #0f172a; border: 1px solid var(--border); border-radius: var(--radius-md); padding: 0.6rem 0.9rem; color: #fff; font-size: 0.9rem; outline: none; }
-        .search-box input:focus { border-color: #38bdf8; }
+        .search-box { position: relative; min-width: 260px; }
+        .search-box input { width: 100%; background: #ffffff; border: 1px solid var(--border); border-radius: var(--radius-md); padding: 0.65rem 0.95rem; color: var(--text-title); font-size: 0.92rem; outline: none; transition: border-color 0.2s; }
+        .search-box input:focus { border-color: var(--primary); }
 
-        /* Progress */
-        .progress-box { display: none; margin-bottom: 1.2rem; }
-        .progress-bar-bg { background: #0f172a; height: 8px; border-radius: 4px; overflow: hidden; margin-top: 4px; }
-        .progress-bar-fill { background: linear-gradient(90deg, #0284c7, #38bdf8); height: 100%; width: 0%; transition: width 0.2s; }
+        /* Progress Bar */
+        .progress-box { display: none; margin-bottom: 1.5rem; }
+        .progress-bar-bg { background: #e2e8f0; height: 8px; border-radius: 4px; overflow: hidden; margin-top: 6px; }
+        .progress-bar-fill { background: linear-gradient(90deg, var(--primary), #38bdf8); height: 100%; width: 0%; transition: width 0.2s; }
 
         /* Table */
         .table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: var(--radius-md); }
-        table.dns-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem; }
-        table.dns-table th { background: #0f172a; color: var(--text-muted); font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; padding: 0.85rem 1rem; border-bottom: 2px solid var(--border); white-space: nowrap; }
-        table.dns-table td { padding: 0.85rem 1rem; border-bottom: 1px solid var(--border); vertical-align: middle; }
+        table.dns-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.92rem; }
+        table.dns-table th { background: #f8fafc; color: var(--text-muted); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; padding: 0.95rem 1.1rem; border-bottom: 2px solid var(--border); white-space: nowrap; }
+        table.dns-table td { padding: 0.9rem 1.1rem; border-bottom: 1px solid var(--border); vertical-align: middle; }
         table.dns-table tr:hover td { background: var(--surface-hover); }
 
-        .resolver-info { display: flex; flex-direction: column; gap: 0.2rem; }
-        .resolver-name { font-weight: 700; color: #fff; display: flex; align-items: center; gap: 0.45rem; font-size: 0.96rem; }
-        .resolver-ips { font-size: 0.8rem; font-family: ui-monospace, monospace; color: var(--text-muted); display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap; }
-        
-        .btn-copy { background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.25); color: #38bdf8; border-radius: 4px; padding: 0.1rem 0.4rem; font-size: 0.72rem; cursor: pointer; }
-        .btn-copy:hover { background: #38bdf8; color: #0f172a; }
+        /* Fastest Server Highlight */
+        table.dns-table tr.fastest-row td { background: #f0fdf4 !important; }
+        table.dns-table tr.fastest-row { border-left: 4px solid #10b981; }
 
-        .stat-val { font-family: ui-monospace, monospace; font-size: 0.95rem; font-weight: 700; font-variant-numeric: tabular-nums; }
-        .stat-val.fast { color: #34d399; }
-        .stat-val.moderate { color: #fbbf24; }
-        .stat-val.slow { color: #f87171; }
+        .resolver-info { display: flex; flex-direction: column; gap: 0.2rem; }
+        .resolver-name { font-weight: 700; color: var(--text-title); display: flex; align-items: center; gap: 0.5rem; font-size: 0.98rem; }
+        .resolver-ips { font-size: 0.82rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; color: var(--text-muted); display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap; }
+        
+        .btn-copy { background: #e0f2fe; border: 1px solid #bae6fd; color: var(--primary); border-radius: 4px; padding: 0.1rem 0.45rem; font-size: 0.72rem; font-weight: 600; cursor: pointer; transition: all 0.15s; }
+        .btn-copy:hover { background: var(--primary); color: #ffffff; }
+
+        .badge-fastest { background: #10b981; color: #ffffff; font-size: 0.72rem; font-weight: 800; padding: 0.15rem 0.55rem; border-radius: 9999px; display: inline-flex; align-items: center; gap: 0.25rem; letter-spacing: 0.3px; }
+
+        .stat-val { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.95rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+        .stat-val.fast { color: #059669; }
+        .stat-val.moderate { color: #d97706; }
+        .stat-val.slow { color: #dc2626; }
         .stat-val.pending { color: var(--text-muted); font-weight: 400; }
 
-        .pill-status { font-size: 0.75rem; font-weight: 700; padding: 0.2rem 0.55rem; border-radius: 9999px; text-transform: uppercase; display: inline-flex; align-items: center; gap: 0.3rem; }
-        .pill-stable { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.35); }
-        .pill-testing { background: rgba(56, 189, 248, 0.2); color: #38bdf8; }
-        .pill-failed { background: rgba(239, 68, 68, 0.2); color: #f87171; }
+        .pill-status { font-size: 0.76rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 9999px; text-transform: uppercase; display: inline-flex; align-items: center; }
+        .pill-stable { background: #dcfce7; color: #15803d; border: 1px solid #bbf7d0; }
+        .pill-testing { background: #e0f2fe; color: #0284c7; }
+        .pill-failed { background: #fee2e2; color: #b91c1c; }
 
         /* SEO Long Article */
-        .seo-box { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2.5rem; margin-bottom: 3rem; }
-        .seo-box h2 { font-size: 1.6rem; color: #fff; margin: 2rem 0 0.8rem; border-left: 4px solid #38bdf8; padding-left: 0.8rem; }
-        .seo-box h3 { font-size: 1.25rem; color: #e2e8f0; margin: 1.5rem 0 0.6rem; }
-        .seo-box p { margin-bottom: 1.2rem; font-size: 0.98rem; text-align: justify; }
-        .seo-box ul, .seo-box ol { padding-left: 1.8rem; margin-bottom: 1.4rem; }
-        .seo-box li { margin-bottom: 0.5rem; }
-        .seo-box code { background: #0f172a; padding: 0.2rem 0.4rem; border-radius: 4px; font-family: ui-monospace, monospace; color: #38bdf8; }
+        .seo-box { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2.8rem 2.4rem; margin-bottom: 3.5rem; box-shadow: var(--shadow); }
+        .seo-box h2 { font-size: 1.7rem; color: var(--text-title); margin: 2.2rem 0 1rem; border-left: 5px solid var(--primary); padding-left: 0.9rem; }
+        .seo-box h3 { font-size: 1.3rem; color: #1e293b; margin: 1.6rem 0 0.7rem; }
+        .seo-box p { margin-bottom: 1.2rem; font-size: 1.02rem; text-align: justify; }
+        .seo-box ul, .seo-box ol { padding-left: 2rem; margin-bottom: 1.5rem; }
+        .seo-box li { margin-bottom: 0.55rem; }
+        .seo-box code { background: #f1f5f9; padding: 0.2rem 0.45rem; border-radius: 4px; font-family: ui-monospace, monospace; color: #0369a1; font-size: 0.9em; }
 
-        footer { background: var(--surface); border-top: 1px solid var(--border); padding: 2rem 1.25rem; margin-top: auto; }
-        .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
-        .footer-brand { font-size: 1.1rem; font-weight: 700; color: #fff; }
-        .footer-brand span { color: #38bdf8; }
-        .footer-copy { color: var(--text-muted); font-size: 0.85rem; }
+        footer { background: var(--surface); border-top: 1px solid var(--border); padding: 2.2rem 1.5rem; margin-top: auto; }
+        .footer-inner { max-width: 1180px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .footer-brand { font-size: 1.15rem; font-weight: 800; color: var(--text-title); }
+        .footer-brand span { color: var(--primary); }
+        .footer-copy { color: var(--text-muted); font-size: 0.88rem; }
 
-        #toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); background: #38bdf8; color: #0f172a; padding: 0.6rem 1.5rem; border-radius: 30px; font-size: 0.88rem; font-weight: 700; opacity: 0; pointer-events: none; transition: 0.25s; z-index: 9999; }
+        #toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); background: #0f172a; color: #ffffff; padding: 0.75rem 1.8rem; border-radius: 9999px; font-size: 0.9rem; font-weight: 700; opacity: 0; pointer-events: none; transition: opacity 0.25s; z-index: 9999; box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
         #toast.active { opacity: 1; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 1.9rem; }
+            .toolbar { flex-direction: column; align-items: stretch; }
+            .search-box { min-width: 100%; }
+        }
     </style>
 </head>
 <body>
@@ -181,7 +224,7 @@
         <div class="hero">
             <div class="hero-badge">⚡ Real-Time Client Telemetry</div>
             <h1>DNS Speed Test & Latency Benchmark</h1>
-            <p>Accurately benchmark DNS-over-HTTPS (DoH) response times across 26 global public DNS resolvers directly from your browser. Lower latency and jitter mean faster browsing and responsive online gaming.</p>
+            <p>Measure real-time DNS-over-HTTPS (DoH) response times across 23 global public DNS resolvers directly from your browser. Lower latency and jitter mean faster browsing and responsive online gaming.</p>
         </div>
 
         <section class="tool-card">
@@ -199,7 +242,7 @@
             </div>
 
             <div class="progress-box" id="progressBox">
-                <div style="display:flex; justify-content:space-between; font-size:0.85rem; color:var(--text-muted); margin-bottom:4px;">
+                <div style="display:flex; justify-content:space-between; font-size:0.85rem; font-weight:600; color:var(--text-muted); margin-bottom:4px;">
                     <span id="progressStatus">Starting benchmark...</span>
                     <span id="progressPercent">0%</span>
                 </div>
@@ -215,7 +258,7 @@
                             <th>DNS Server</th>
                             <th>Status</th>
                             <th>Min</th>
-                            <th>Median</th>
+                            <th>Median (P50)</th>
                             <th>Avg</th>
                             <th>Max</th>
                         </tr>
@@ -231,7 +274,7 @@
         <article class="seo-box">
             <h2>Understanding Real-World DNS Latency: Why Browsers Feel Sluggish</h2>
             <p>
-                The Domain Name System (DNS) maps human-friendly hostnames (like <code>wikipedia.org</code>) to numerical machine IP addresses (such as <code>198.35.26.96</code>). Because web browsers must resolve every single domain before requesting assets (HTML, stylesheets, scripts, fonts, and API requests), slow DNS lookups directly delay your <strong>Time to First Byte (TTFB)</strong>.
+                The Domain Name System (DNS) translates human-readable hostnames (such as <code>wikipedia.org</code>) into numerical IP addresses (such as <code>198.35.26.96</code>). Because web browsers must resolve every single domain before requesting assets (HTML, stylesheets, scripts, fonts, and API requests), slow DNS lookups directly delay your <strong>Time to First Byte (TTFB)</strong>.
             </p>
             <p>
                 A standard web page triggers between 20 to 60 DNS requests. If your default ISP resolver takes 100ms per lookup, your device wastes seconds purely waiting for address resolution. Switching to an Anycast-routed resolver reduces lookup latency down to 10-25ms.
@@ -255,7 +298,7 @@
                 <li>Flush DNS cache in PowerShell: <code>ipconfig /flushdns</code>.</li>
             </ol>
 
-            <h3>macOS</h3>
+            <h3>macOS (Sonoma / Ventura)</h3>
             <ol>
                 <li>Open <strong>System Settings</strong> &gt; <strong>Network</strong>.</li>
                 <li>Click your active connection, click <strong>Details...</strong>, and switch to the <strong>DNS</strong> tab.</li>
@@ -271,10 +314,10 @@
         </div>
     </footer>
 
-    <div id="toast">Copied to clipboard!</div>
+    <div id="toast">Copied to clipboard! &check;</div>
 
     <script>
-        // All 26 Resolvers matching your benchmark dataset
+        // 23 Reliable, Active Global DNS Resolvers (failing providers removed)
         const dnsResolvers = [
             { flag: "🇺🇸", name: "Cloudflare", ip1: "1.1.1.1", ip2: "1.0.0.1", endpoint: "https://cloudflare-dns.com/dns-query" },
             { flag: "🇺🇸", name: "Google", ip1: "8.8.8.8", ip2: "8.8.4.4", endpoint: "https://dns.google/dns-query" },
@@ -292,13 +335,10 @@
             { flag: "🇨🇳", name: "360", ip1: "101.226.4.6", ip2: "180.163.224.54", endpoint: "https://doh.360.cn/dns-query" },
             { flag: "🇨🇦", name: "Canadian Shield", ip1: "149.112.121.10", ip2: "149.112.122.10", endpoint: "https://private.canadianshield.cira.ca/dns-query" },
             { flag: "🇨🇭", name: "Digitale Gesellschaft", ip1: "185.95.218.42", ip2: "185.95.218.43", endpoint: "https://dns.digitale-gesellschaft.ch/dns-query" },
-            { flag: "🇩🇪", name: "DNS for Family", ip1: "94.130.180.225", ip2: "78.47.64.161", endpoint: "https://dns-family.eth-net.de/dns-query" },
-            { flag: "🇱🇺", name: "Restena", ip1: "158.64.1.29", ip2: "", endpoint: "https://doh.restena.lu/dns-query" },
             { flag: "🇯🇵", name: "IIJ", ip1: "203.180.164.45", ip2: "203.180.166.45", endpoint: "https://public.dns.iij.jp/dns-query" },
             { flag: "🇬🇷", name: "LibreDNS", ip1: "116.202.176.26", ip2: "147.135.76.183", endpoint: "https://doh.libredns.gr/dns-query" },
             { flag: "🇨🇭", name: "Switch", ip1: "130.59.31.248", ip2: "130.59.31.251", endpoint: "https://dns.switch.ch/dns-query" },
             { flag: "🇦🇹", name: "Foundation for Applied Privacy", ip1: "146.255.56.98", ip2: "", endpoint: "https://doh.applied-privacy.net/query" },
-            { flag: "🇩🇰", name: "UncensoredDNS", ip1: "91.239.100.100", ip2: "89.233.43.71", endpoint: "https://anycast.uncensoreddns.org/dns-query" },
             { flag: "🇺🇸", name: "RethinkDNS", ip1: "104.21.83.62", ip2: "172.67.214.246", endpoint: "https://max.rethinkdns.com/dns-query" },
             { flag: "🇮🇹", name: "FlashStart", ip1: "185.236.104.104", ip2: "", endpoint: "https://doh.flashstart.com/dns-query" },
             { flag: "🇺🇸", name: "Comcast Xfinity", ip1: "75.75.75.75", ip2: "75.75.76.76", endpoint: "https://doh.xfinity.com/dns-query" }
@@ -314,7 +354,8 @@
             max: null,
             successCount: 0,
             totalCount: 3,
-            testing: false
+            testing: false,
+            isFastest: false
         }));
 
         const tableBody = document.getElementById("tableBody");
@@ -339,7 +380,7 @@
             });
         };
 
-        // Construct standard RFC 8484 DNS Query Packet (Base64URL) for universal compatibility
+        // Construct standard RFC 8484 DNS Query Packet (Base64URL)
         function createRfc8484Query(domain = "wikipedia.org") {
             const parts = domain.split(".");
             let len = 12 + 4 + 1;
@@ -378,8 +419,11 @@
 
             filtered.forEach(item => {
                 const tr = document.createElement("tr");
+                if (item.isFastest) {
+                    tr.className = "fastest-row";
+                }
 
-                let statusHtml = `<span class="pill-status" style="background:#334155; color:#94a3b8">Idle</span>`;
+                let statusHtml = `<span class="pill-status" style="background:#f1f5f9; color:#64748b">Idle</span>`;
                 if (item.testing) {
                     statusHtml = `<span class="pill-status pill-testing">Probing...</span>`;
                 } else if (item.status === "Stable") {
@@ -397,7 +441,10 @@
                 tr.innerHTML = `
                     <td>
                         <div class="resolver-info">
-                            <div class="resolver-name">${item.flag} ${item.name}</div>
+                            <div class="resolver-name">
+                                ${item.flag} ${item.name}
+                                ${item.isFastest ? '<span class="badge-fastest">🏆 FASTEST</span>' : ''}
+                            </div>
                             <div class="resolver-ips">
                                 <span>${item.ip1}</span>
                                 <button class="btn-copy" onclick="copyIp('${item.ip1}')">Copy</button>
@@ -418,7 +465,7 @@
         renderTable();
         searchInput.addEventListener("input", renderTable);
 
-        // Highly optimized probe engine with Dual-Fallback (Standard Fetch + No-CORS Fallback)
+        // Robust Probe Engine with Dual-Fallback (Standard Fetch + No-CORS Fallback)
         async function probeServer(endpoint) {
             const sep = endpoint.includes("?") ? "&" : "?";
             const url = `${endpoint}${sep}dns=${globalQueryB64}`;
@@ -438,7 +485,7 @@
                 return Math.round(performance.now() - t0);
             } catch (err) {
                 clearTimeout(timer);
-                // If blocked due to strict CORS headers, fallback to opaque probe to guarantee true RTT
+                // Fallback to opaque probe if browser blocks cross-origin reading
                 if (err.name !== "AbortError") {
                     try {
                         const c2 = new AbortController();
@@ -465,6 +512,9 @@
             exportBtn.disabled = true;
             progressBox.style.display = "block";
             progressBar.style.width = "0%";
+
+            // Clear previous fastest mark
+            stateData.forEach(item => item.isFastest = false);
 
             const total = stateData.length;
 
@@ -517,6 +567,12 @@
                 if (b.avg === null) return -1;
                 return a.avg - b.avg;
             });
+
+            // Mark the fastest resolver
+            const winner = stateData.find(item => item.avg !== null);
+            if (winner) {
+                winner.isFastest = true;
+            }
 
             progressBar.style.width = "100%";
             progressPercent.innerText = "100%";
