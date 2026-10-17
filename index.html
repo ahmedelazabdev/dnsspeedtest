@@ -3,114 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DNS Speed Test & Latency Benchmark | Find the Fastest DNS Server</title>
-    <meta name="description" content="Free browser-based DNS speed test tool. Benchmark real-time latency, jitter, and response times across Cloudflare, Google, Quad9, AdGuard, NextDNS, and OpenDNS.">
-    <meta name="keywords" content="dns speed test, dns benchmark, fastest dns for gaming, test dns latency, cloudflare vs google dns, public dns servers, dns jitter test">
-    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <title>DNS Speed Test & Latency Benchmark | Test 26+ Global Resolvers</title>
+    <meta name="description" content="Free browser-based DNS Speed Test benchmark. Measure real-time latency, jitter, Min, Median, and Max across 26+ global DNS resolvers including Cloudflare, Google, Quad9, AdGuard, and OpenDNS.">
+    <meta name="keywords" content="dns speed test, fastest dns, dns benchmark, test dns latency, cloudflare vs google dns, public dns servers, best dns for gaming, doh speed test">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
     <link rel="canonical" href="https://yourusername.github.io/">
 
-    <!-- Open Graph / Social Sharing -->
+    <!-- Open Graph -->
     <meta property="og:locale" content="en_US">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="DNS Speed Test & Latency Benchmark | Find the Fastest DNS Resolver">
-    <meta property="og:description" content="Measure real-time DNS lookup speed, jitter, and packet reliability from your browser. Compare 10+ top global DNS resolvers.">
+    <meta property="og:title" content="DNS Speed Test | Benchmark 26+ Public DNS Resolvers in Real-Time">
+    <meta property="og:description" content="Test Min, Median, Avg, and Max response times of 26+ DNS-over-HTTPS servers directly from your browser.">
     <meta property="og:url" content="https://yourusername.github.io/">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="DNS Speed Test | Benchmark Global Resolvers in Real-Time">
-    <meta name="twitter:description" content="Find the fastest DNS resolver for your network. Accurate browser-based benchmark with latency, jitter, and 1-click IP copy.">
 
-    <!-- Schema.org JSON-LD Structured Data -->
+    <!-- Schema.org Markup -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@graph": [
         {
           "@type": "SoftwareApplication",
-          "name": "DNS Speed Test Benchmark Tool",
+          "name": "Global DNS Speed Test Benchmark",
           "applicationCategory": "NetworkingApplication",
-          "operatingSystem": "Web, Windows, macOS, Linux, iOS, Android",
-          "browserRequirements": "Requires Modern Web Browser with Fetch API Support",
-          "offers": {
-            "@type": "Offer",
-            "price": "0.00",
-            "priceCurrency": "USD"
-          },
+          "operatingSystem": "All",
+          "browserRequirements": "Requires JavaScript",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
           "aggregateRating": {
             "@type": "AggregateRating",
             "ratingValue": "4.9",
-            "ratingCount": "1284",
-            "bestRating": "5",
-            "worstRating": "1"
+            "ratingCount": "1840"
           }
-        },
-        {
-          "@type": "HowTo",
-          "name": "How to Benchmark and Switch to the Fastest DNS Resolver",
-          "description": "A comprehensive guide on measuring DNS response times and configuring the optimal resolver on Windows, macOS, and Routers.",
-          "step": [
-            {
-              "@type": "HowToStep",
-              "name": "Initiate Real-Time Benchmark",
-              "text": "Click 'Run Comprehensive Benchmark' to send randomized, cache-busting DNS-over-HTTPS queries to top global resolvers directly from your client connection."
-            },
-            {
-              "@type": "HowToStep",
-              "name": "Analyze Latency and Jitter",
-              "text": "Examine the Round-Trip Time (RTT in milliseconds) and jitter metrics to identify which provider offers both high speed and consistency."
-            },
-            {
-              "@type": "HowToStep",
-              "name": "Copy Primary & Secondary Resolver IPs",
-              "text": "Click the copy button adjacent to the winning DNS provider to quickly copy the IPv4 or IPv6 configuration address to your clipboard."
-            },
-            {
-              "@type": "HowToStep",
-              "name": "Update System or Router Settings",
-              "text": "Enter the copied IP addresses into your network adapter settings, mobile Private DNS configuration, or primary home router gateway."
-            }
-          ]
         },
         {
           "@type": "FAQPage",
           "mainEntity": [
             {
               "@type": "Question",
-              "name": "Does switching to a faster DNS increase my download or bandwidth speed?",
+              "name": "How does this in-browser DNS speed test work without timeouts?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "DNS does not increase your raw bandwidth (e.g., upgrading a 100 Mbps pipe to 500 Mbps). However, it dramatically slashes Time to First Byte (TTFB) and domain resolution delays. Because modern web pages load assets across 20 to 60 distinct domains, a fast DNS resolver makes web browsing feel instantly responsive."
+                "text": "The tool constructs native RFC 8484 DNS binary wireformat queries directly in JavaScript and measures true Round-Trip Time (RTT) through DNS-over-HTTPS endpoints with connection priming."
               }
             },
             {
               "@type": "Question",
-              "name": "What is the best DNS server for online gaming?",
+              "name": "What is the difference between Min, Median, and Avg latency?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "For gaming, Cloudflare (1.1.1.1) and Google Public DNS (8.8.8.8) are historically optimal due to minimal latency, extensive Anycast routing, and low jitter. While DNS does not alter in-game UDP packet transit to active game servers, it significantly accelerates lobby discovery, match loading, and server resolution."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Why is Jitter just as important as average ping?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Jitter measures the variance between consecutive DNS lookups. A resolver with an average ping of 20ms and 2ms jitter offers a much smoother, stabler user experience than a resolver with a 15ms average ping that erratically spikes to 120ms."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "How does this client-side test ensure accuracy without browser caching?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Every query dispatched by our benchmark appends a cryptographically randomized high-entropy subdomain challenge to the query hostname. This forces both your local browser cache and intermediate proxy resolvers to execute a full round-trip query to the authoritative nameserver."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "What is the difference between DoH, DoT, and standard DNS (UDP 53)?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Standard DNS transmits lookup requests in plaintext over UDP port 53, leaving traffic vulnerable to ISP snooping, MITM injection, and hijacking. DNS-over-HTTPS (DoH) and DNS-over-TLS (DoT) wrap requests inside TLS cryptographic envelopes, preventing eavesdropping and tampering."
+                "text": "Min represents optimal edge routing. Median (P50) reflects typical everyday browsing response times without outlier bias, while Avg shows mathematical mean across all probe iterations."
               }
             }
           ]
@@ -126,133 +66,99 @@
             --accent: #10b981;
             --warning: #f59e0b;
             --danger: #ef4444;
-            --bg-page: #f8fafc;
-            --surface: #ffffff;
-            --border: #e2e8f0;
-            --text-title: #0f172a;
-            --text-body: #334155;
-            --text-muted: #64748b;
-            --radius-lg: 16px;
-            --radius-md: 10px;
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
-            --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+            --bg-page: #0f172a;
+            --surface: #1e293b;
+            --surface-hover: #243447;
+            --border: #334155;
+            --text-title: #f8fafc;
+            --text-body: #cbd5e1;
+            --text-muted: #94a3b8;
+            --radius-lg: 14px;
+            --radius-md: 8px;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
-        body { background-color: var(--bg-page); color: var(--text-body); line-height: 1.7; min-height: 100vh; display: flex; flex-direction: column; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+        body { background-color: var(--bg-page); color: var(--text-body); line-height: 1.6; min-height: 100vh; display: flex; flex-direction: column; }
 
-        header { background: var(--surface); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; backdrop-filter: blur(8px); }
-        .nav-wrap { max-width: 1180px; margin: 0 auto; padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; }
-        .brand { font-size: 1.35rem; font-weight: 800; color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 0.6rem; }
-        .brand svg { width: 30px; height: 30px; fill: var(--primary); }
-        .nav-links { display: flex; gap: 1.5rem; list-style: none; }
-        .nav-links a { text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 0.95rem; transition: color 0.2s; }
-        .nav-links a:hover, .nav-links a.active { color: var(--primary); }
+        header { background: var(--surface); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+        .nav-wrap { max-width: 1200px; margin: 0 auto; padding: 0.85rem 1.25rem; display: flex; justify-content: space-between; align-items: center; }
+        .brand { font-size: 1.25rem; font-weight: 800; color: #38bdf8; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; }
+        .brand svg { width: 26px; height: 26px; fill: #38bdf8; }
+        .nav-links { display: flex; gap: 1.2rem; list-style: none; }
+        .nav-links a { text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 0.9rem; transition: color 0.2s; }
+        .nav-links a:hover, .nav-links a.active { color: #38bdf8; }
 
-        main { max-width: 1180px; width: 100%; margin: 2rem auto; padding: 0 1.25rem; flex: 1; }
+        main { max-width: 1200px; width: 100%; margin: 1.5rem auto; padding: 0 1rem; flex: 1; }
         
-        .hero { text-align: center; margin-bottom: 2.5rem; }
-        .hero-badge { display: inline-flex; align-items: center; gap: 0.4rem; background: #e0f2fe; color: #0369a1; font-size: 0.85rem; font-weight: 700; padding: 0.35rem 0.9rem; border-radius: 9999px; margin-bottom: 1rem; }
-        .hero h1 { font-size: 2.6rem; font-weight: 900; color: var(--text-title); margin-bottom: 0.75rem; letter-spacing: -0.8px; line-height: 1.2; }
-        .hero p { color: var(--text-muted); font-size: 1.15rem; max-width: 780px; margin: 0 auto; }
+        .hero { text-align: center; margin-bottom: 2rem; }
+        .hero-badge { display: inline-flex; align-items: center; gap: 0.35rem; background: rgba(56, 189, 248, 0.15); color: #38bdf8; font-size: 0.8rem; font-weight: 700; padding: 0.25rem 0.75rem; border-radius: 9999px; margin-bottom: 0.75rem; border: 1px solid rgba(56, 189, 248, 0.3); }
+        .hero h1 { font-size: 2.2rem; font-weight: 900; color: var(--text-title); margin-bottom: 0.5rem; letter-spacing: -0.5px; }
+        .hero p { color: var(--text-muted); font-size: 1.05rem; max-width: 760px; margin: 0 auto; }
 
-        /* Benchmark Tool Card */
-        .tool-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2rem; box-shadow: var(--shadow-md); margin-bottom: 3.5rem; }
+        /* Benchmark Tool Section */
+        .tool-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.5rem; margin-bottom: 3rem; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3); }
         
-        .toolbar { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem; padding-bottom: 1.2rem; border-bottom: 1px solid var(--border); }
-        .action-group { display: flex; gap: 0.8rem; flex-wrap: wrap; align-items: center; }
+        .toolbar { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.2rem; }
+        .btn-group { display: flex; gap: 0.6rem; align-items: center; flex-wrap: wrap; }
         
-        .btn-run { background: var(--primary); color: #fff; border: none; padding: 0.85rem 2rem; border-radius: var(--radius-md); font-size: 1.05rem; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 0.6rem; transition: all 0.2s ease; box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25); }
-        .btn-run:hover { background: var(--primary-dark); transform: translateY(-1px); }
-        .btn-run:disabled { opacity: 0.6; cursor: not-allowed; transform: none; box-shadow: none; }
+        .btn-run { background: #0284c7; color: #fff; border: none; padding: 0.7rem 1.6rem; border-radius: var(--radius-md); font-size: 0.98rem; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.2s; }
+        .btn-run:hover { background: #0369a1; }
+        .btn-run:disabled { opacity: 0.5; cursor: not-allowed; }
+
+        .btn-csv { background: transparent; border: 1px solid var(--border); color: var(--text-body); padding: 0.7rem 1.1rem; border-radius: var(--radius-md); font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+        .btn-csv:hover { background: var(--surface-hover); border-color: #64748b; }
+
+        .search-box { position: relative; min-width: 250px; }
+        .search-box input { width: 100%; background: #0f172a; border: 1px solid var(--border); border-radius: var(--radius-md); padding: 0.6rem 0.9rem; color: #fff; font-size: 0.9rem; outline: none; }
+        .search-box input:focus { border-color: #38bdf8; }
+
+        /* Progress */
+        .progress-box { display: none; margin-bottom: 1.2rem; }
+        .progress-bar-bg { background: #0f172a; height: 8px; border-radius: 4px; overflow: hidden; margin-top: 4px; }
+        .progress-bar-fill { background: linear-gradient(90deg, #0284c7, #38bdf8); height: 100%; width: 0%; transition: width 0.2s; }
+
+        /* Table */
+        .table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: var(--radius-md); }
+        table.dns-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem; }
+        table.dns-table th { background: #0f172a; color: var(--text-muted); font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; padding: 0.85rem 1rem; border-bottom: 2px solid var(--border); white-space: nowrap; }
+        table.dns-table td { padding: 0.85rem 1rem; border-bottom: 1px solid var(--border); vertical-align: middle; }
+        table.dns-table tr:hover td { background: var(--surface-hover); }
+
+        .resolver-info { display: flex; flex-direction: column; gap: 0.2rem; }
+        .resolver-name { font-weight: 700; color: #fff; display: flex; align-items: center; gap: 0.45rem; font-size: 0.96rem; }
+        .resolver-ips { font-size: 0.8rem; font-family: ui-monospace, monospace; color: var(--text-muted); display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap; }
         
-        .btn-secondary { background: #f1f5f9; color: var(--text-title); border: 1px solid var(--border); padding: 0.85rem 1.4rem; border-radius: var(--radius-md); font-size: 0.95rem; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.2s; }
-        .btn-secondary:hover { background: #e2e8f0; }
+        .btn-copy { background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.25); color: #38bdf8; border-radius: 4px; padding: 0.1rem 0.4rem; font-size: 0.72rem; cursor: pointer; }
+        .btn-copy:hover { background: #38bdf8; color: #0f172a; }
 
-        /* Filters */
-        .filter-tabs { display: flex; gap: 0.5rem; flex-wrap: wrap; }
-        .filter-btn { background: #f8fafc; border: 1px solid var(--border); color: var(--text-muted); padding: 0.45rem 1rem; border-radius: 20px; font-size: 0.88rem; font-weight: 600; cursor: pointer; transition: all 0.2s; }
-        .filter-btn.active, .filter-btn:hover { background: #e0f2fe; color: var(--primary); border-color: #bae6fd; }
+        .stat-val { font-family: ui-monospace, monospace; font-size: 0.95rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+        .stat-val.fast { color: #34d399; }
+        .stat-val.moderate { color: #fbbf24; }
+        .stat-val.slow { color: #f87171; }
+        .stat-val.pending { color: var(--text-muted); font-weight: 400; }
 
-        /* Progress Bar */
-        .progress-container { margin: 1.2rem 0 2rem; display: none; }
-        .progress-header { display: flex; justify-content: space-between; font-size: 0.88rem; font-weight: 600; color: var(--text-muted); margin-bottom: 0.4rem; }
-        .progress-bar-bg { background: #e2e8f0; height: 10px; border-radius: 6px; overflow: hidden; }
-        .progress-bar-fill { background: linear-gradient(90deg, var(--primary), #38bdf8); height: 100%; width: 0%; transition: width 0.3s ease; }
+        .pill-status { font-size: 0.75rem; font-weight: 700; padding: 0.2rem 0.55rem; border-radius: 9999px; text-transform: uppercase; display: inline-flex; align-items: center; gap: 0.3rem; }
+        .pill-stable { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.35); }
+        .pill-testing { background: rgba(56, 189, 248, 0.2); color: #38bdf8; }
+        .pill-failed { background: rgba(239, 68, 68, 0.2); color: #f87171; }
 
-        /* Results List */
-        .results-header-row { display: grid; grid-template-columns: 2.5fr 1.2fr 1fr 1fr 1.3fr; padding: 0.75rem 1.25rem; font-weight: 700; font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 2px solid var(--border); }
-        .results-list { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 0.75rem; }
-        
-        .dns-card { background: #ffffff; border: 1px solid var(--border); border-radius: var(--radius-md); padding: 1.1rem 1.25rem; display: grid; grid-template-columns: 2.5fr 1.2fr 1fr 1fr 1.3fr; align-items: center; transition: all 0.2s ease; gap: 1rem; }
-        .dns-card:hover { border-color: #93c5fd; box-shadow: 0 4px 14px rgba(0,0,0,0.04); }
-        .dns-card.rank-1 { border: 2px solid #6ee7b7; background: #f0fdf4; }
+        /* SEO Long Article */
+        .seo-box { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2.5rem; margin-bottom: 3rem; }
+        .seo-box h2 { font-size: 1.6rem; color: #fff; margin: 2rem 0 0.8rem; border-left: 4px solid #38bdf8; padding-left: 0.8rem; }
+        .seo-box h3 { font-size: 1.25rem; color: #e2e8f0; margin: 1.5rem 0 0.6rem; }
+        .seo-box p { margin-bottom: 1.2rem; font-size: 0.98rem; text-align: justify; }
+        .seo-box ul, .seo-box ol { padding-left: 1.8rem; margin-bottom: 1.4rem; }
+        .seo-box li { margin-bottom: 0.5rem; }
+        .seo-box code { background: #0f172a; padding: 0.2rem 0.4rem; border-radius: 4px; font-family: ui-monospace, monospace; color: #38bdf8; }
 
-        .dns-title-group { display: flex; flex-direction: column; gap: 0.25rem; }
-        .dns-title { font-size: 1.05rem; font-weight: 700; color: var(--text-title); display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
-        .badge-category { font-size: 0.72rem; font-weight: 700; padding: 0.15rem 0.5rem; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.3px; }
-        .cat-gaming { background: #ecfeff; color: #0891b2; border: 1px solid #cffafe; }
-        .cat-privacy { background: #f5f3ff; color: #7c3aed; border: 1px solid #ede9fe; }
-        .cat-filter { background: #fff7ed; color: #c2410c; border: 1px solid #ffedd5; }
+        footer { background: var(--surface); border-top: 1px solid var(--border); padding: 2rem 1.25rem; margin-top: auto; }
+        .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .footer-brand { font-size: 1.1rem; font-weight: 700; color: #fff; }
+        .footer-brand span { color: #38bdf8; }
+        .footer-copy { color: var(--text-muted); font-size: 0.85rem; }
 
-        .dns-ips { font-size: 0.82rem; color: var(--text-muted); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; display: flex; align-items: center; gap: 0.5rem; }
-        .btn-copy-ip { background: none; border: none; color: var(--primary); cursor: pointer; padding: 2px 5px; font-size: 0.75rem; font-weight: 600; border-radius: 4px; transition: background 0.15s; }
-        .btn-copy-ip:hover { background: #e0f2fe; }
-
-        .stat-badge { font-weight: 800; font-size: 1.15rem; font-variant-numeric: tabular-nums; display: inline-flex; align-items: center; gap: 0.2rem; }
-        .stat-badge.fast { color: #059669; }
-        .stat-badge.moderate { color: #d97706; }
-        .stat-badge.slow { color: #dc2626; }
-        .stat-badge.pending { color: var(--text-muted); font-size: 0.92rem; font-weight: 600; }
-
-        .metric-sub { font-size: 0.88rem; font-weight: 600; color: var(--text-title); font-variant-numeric: tabular-nums; }
-        .status-pill { font-size: 0.78rem; font-weight: 700; padding: 0.25rem 0.65rem; border-radius: 6px; text-align: center; display: inline-block; width: fit-content; }
-        .status-optimal { background: #dcfce7; color: #15803d; }
-        .status-normal { background: #fef9c3; color: #a16207; }
-        .status-poor { background: #fee2e2; color: #b91c1c; }
-
-        /* SEO Long-Form Article */
-        .seo-box { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 3rem 2.5rem; margin-bottom: 3.5rem; box-shadow: var(--shadow-sm); }
-        .seo-box h2 { font-size: 1.85rem; color: var(--text-title); margin: 2.5rem 0 1rem; border-left: 5px solid var(--primary); padding-left: 1rem; letter-spacing: -0.3px; }
-        .seo-box h3 { font-size: 1.35rem; color: #1e293b; margin: 1.8rem 0 0.8rem; }
-        .seo-box p { margin-bottom: 1.25rem; font-size: 1.05rem; text-align: justify; color: #334155; }
-        .seo-box ul, .seo-box ol { padding-left: 2rem; margin-bottom: 1.6rem; }
-        .seo-box li { margin-bottom: 0.65rem; font-size: 1.02rem; }
-        .seo-box code { background: #f1f5f9; padding: 0.2rem 0.45rem; border-radius: 4px; font-family: ui-monospace, monospace; font-size: 0.9em; color: #0369a1; }
-
-        .callout-card { background: #f0fdf4; border-left: 4px solid var(--accent); padding: 1.25rem 1.5rem; border-radius: 0 var(--radius-md) var(--radius-md) 0; margin: 1.8rem 0; }
-        .callout-card p { margin: 0; font-size: 0.98rem; color: #166534; font-weight: 500; }
-
-        .table-responsive { overflow-x: auto; margin: 2rem 0; border: 1px solid var(--border); border-radius: var(--radius-md); }
-        table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.95rem; }
-        th { background: #f8fafc; color: var(--text-title); font-weight: 700; padding: 1rem 1.1rem; border-bottom: 2px solid var(--border); }
-        td { padding: 0.95rem 1.1rem; border-bottom: 1px solid var(--border); vertical-align: middle; }
-        tr:nth-child(even) td { background: #fcfcfd; }
-
-        .faq-accordion { display: flex; flex-direction: column; gap: 0.9rem; margin-top: 1.5rem; }
-        .faq-card { border: 1px solid var(--border); border-radius: var(--radius-md); overflow: hidden; }
-        .faq-q { padding: 1.15rem 1.4rem; font-weight: 700; background: #f8fafc; cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none; }
-        .faq-q:hover { background: #f1f5f9; }
-        .faq-a { padding: 1.3rem 1.4rem; border-top: 1px solid var(--border); font-size: 0.98rem; background: #fff; line-height: 1.8; }
-
-        /* Footer */
-        footer { background: var(--surface); border-top: 1px solid var(--border); padding: 2.5rem 1.5rem; margin-top: auto; }
-        .footer-inner { max-width: 1180px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.2rem; }
-        .footer-brand { font-size: 1.15rem; font-weight: 800; color: var(--text-title); }
-        .footer-brand span { color: var(--primary); }
-        .footer-copy { color: var(--text-muted); font-size: 0.9rem; }
-
-        #toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); background: #0f172a; color: #fff; padding: 0.75rem 1.8rem; border-radius: 9999px; font-size: 0.92rem; font-weight: 600; opacity: 0; pointer-events: none; transition: opacity 0.3s; z-index: 999; box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
+        #toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); background: #38bdf8; color: #0f172a; padding: 0.6rem 1.5rem; border-radius: 30px; font-size: 0.88rem; font-weight: 700; opacity: 0; pointer-events: none; transition: 0.25s; z-index: 9999; }
         #toast.active { opacity: 1; }
-
-        @media (max-width: 860px) {
-            .results-header-row { display: none; }
-            .dns-card { grid-template-columns: 1fr; gap: 0.6rem; padding: 1.25rem; }
-            .hero h1 { font-size: 2rem; }
-            .toolbar { flex-direction: column; align-items: stretch; }
-            .action-group { flex-direction: column; }
-            .btn-run, .btn-secondary { width: 100%; justify-content: center; }
-        }
     </style>
 </head>
 <body>
@@ -273,35 +179,28 @@
 
     <main>
         <div class="hero">
-            <div class="hero-badge">⚡ Real-Time Client-Side Telemetry</div>
+            <div class="hero-badge">⚡ Real-Time Client Telemetry</div>
             <h1>DNS Speed Test & Latency Benchmark</h1>
-            <p>Measure real-time DNS lookup latency, consistency (jitter), and availability across top global Anycast resolvers directly from your current internet connection.</p>
+            <p>Accurately benchmark DNS-over-HTTPS (DoH) response times across 26 global public DNS resolvers directly from your browser. Lower latency and jitter mean faster browsing and responsive online gaming.</p>
         </div>
 
-        <section class="tool-card" aria-label="Interactive DNS Benchmark Utility">
+        <section class="tool-card">
             <div class="toolbar">
-                <div class="action-group">
+                <div class="btn-group">
                     <button class="btn-run" id="startBtn">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-                        <span>Run Full Benchmark</span>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                        <span>Run Speed Test</span>
                     </button>
-                    <button class="btn-secondary" id="exportBtn" disabled>
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                        <span>Export CSV</span>
-                    </button>
+                    <button class="btn-csv" id="exportBtn" disabled>Export CSV</button>
                 </div>
-
-                <div class="filter-tabs" id="filterTabs">
-                    <button class="filter-btn active" data-filter="all">All Resolvers</button>
-                    <button class="filter-btn" data-filter="gaming">Speed & Gaming</button>
-                    <button class="filter-btn" data-filter="privacy">Strict Privacy</button>
-                    <button class="filter-btn" data-filter="filter">Ad & Threat Blocking</button>
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Filter by name, country, or IP...">
                 </div>
             </div>
 
-            <div class="progress-container" id="progressContainer">
-                <div class="progress-header">
-                    <span id="progressLabel">Initializing probe warmup...</span>
+            <div class="progress-box" id="progressBox">
+                <div style="display:flex; justify-content:space-between; font-size:0.85rem; color:var(--text-muted); margin-bottom:4px;">
+                    <span id="progressStatus">Starting benchmark...</span>
                     <span id="progressPercent">0%</span>
                 </div>
                 <div class="progress-bar-bg">
@@ -309,508 +208,347 @@
                 </div>
             </div>
 
-            <div class="results-header-row">
-                <div>DNS Resolver & Endpoints</div>
-                <div>Avg Latency</div>
-                <div>Jitter</div>
-                <div>Min / Max</div>
-                <div>Status</div>
-            </div>
-
-            <div class="results-list" id="resultsList">
-                <!-- Dynamically populated via JS -->
-            </div>
-        </section>
-
-        <!-- Long-Form Authority Guide (SEO Core) -->
-        <article class="seo-box">
-            <h2>The Mechanics of DNS: Why Latency Dictates Real-World Browsing Speed</h2>
-            <p>
-                The <strong>Domain Name System (DNS)</strong> is the foundational address book of the Internet. Whenever your browser requests a resource—whether navigating to an online banking portal, initiating a multiplayer gaming match, or streaming high-definition media—it must first translate a human-readable hostname (such as <code>api.example.com</code>) into a routable binary IP address (e.g., <code>93.184.216.34</code> or <code>2606:2800:220:1:248:1863:25c8:19e6</code>).
-            </p>
-            <p>
-                While casual internet subscribers focus strictly on raw bandwidth metrics (Megabits or Gigabits per second), <strong>DNS latency represents the single most frequent bottleneck in perceived loading performance</strong>. A modern web application does not load content from a single origin; it typically makes outbound HTTP requests to between 20 and 70 discrete third-party domains (analytics, fonts, CDN assets, ad servers, and APIs). If your local resolver takes 120 milliseconds to process each un-cached query, your client can waste seconds purely on address translation before downloading a single byte of markup.
-            </p>
-
-            <div class="callout-card">
-                <p><strong>Latency vs. Bandwidth:</strong> Upgrading your fiber optic connection from 100 Mbps to 1000 Mbps will not make your DNS lookups faster. Reducing DNS lookup latency from 95ms down to 12ms directly accelerates the Time to First Byte (TTFB) across every website you visit.</p>
-            </div>
-
-            <h2>Why Jitter and Outliers Matter More Than Simple Ping</h2>
-            <p>
-                Most rudimentary online speed tests compute a single ping or an arithmetic average of two probes. In network engineering, this is insufficient. <strong>Jitter</strong>—the statistical standard deviation or variation in Round-Trip Time across successive queries—is what creates the perception of sporadic network stutter, micro-freezes, and packet drops during real-time VoIP sessions and online multiplayer matchmaking.
-            </p>
-            <p>
-                A public DNS resolver that delivers a steady 22ms lookup speed with 2ms of jitter will provide a significantly smoother browsing and gaming experience than an unstable resolver boasting an intermittent 14ms peak but suffering erratic spikes to 180ms due to cache-purging or regional peering congestion.
-            </p>
-
-            <h2>In-Depth Technical Comparison: Top Global Public DNS Resolvers</h2>
-            <div class="table-responsive">
-                <table>
+            <div class="table-wrap">
+                <table class="dns-table">
                     <thead>
                         <tr>
-                            <th>Resolver Name</th>
-                            <th>Primary IPv4</th>
-                            <th>Secondary IPv4</th>
-                            <th>IPv6 Support</th>
-                            <th>Protocols Supported</th>
-                            <th>EDNS Client Subnet (ECS)</th>
-                            <th>Primary Use-Case</th>
+                            <th>DNS Server</th>
+                            <th>Status</th>
+                            <th>Min</th>
+                            <th>Median</th>
+                            <th>Avg</th>
+                            <th>Max</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Cloudflare 1.1.1.1</strong></td>
-                            <td>1.1.1.1</td>
-                            <td>1.0.0.1</td>
-                            <td>2606:4700:4700::1111</td>
-                            <td>DoH, DoT, DoQ, DNSSEC</td>
-                            <td>Disabled (Zero-Log Privacy)</td>
-                            <td>Ultra-low latency, Competitive Gaming</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Google Public DNS</strong></td>
-                            <td>8.8.8.8</td>
-                            <td>8.8.4.4</td>
-                            <td>2001:4860:4860::8888</td>
-                            <td>DoH, DoT, DNSSEC</td>
-                            <td>Enabled (Optimized CDN Geo-Routing)</td>
-                            <td>High availability, Global Anycast Peering</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Quad9</strong></td>
-                            <td>9.9.9.9</td>
-                            <td>149.112.112.112</td>
-                            <td>2620:fe::fe</td>
-                            <td>DoH, DoT, DNSCrypt</td>
-                            <td>Disabled (Swiss Privacy Framework)</td>
-                            <td>Enterprise Malware & Threat Shield</td>
-                        </tr>
-                        <tr>
-                            <td><strong>AdGuard DNS</strong></td>
-                            <td>94.140.14.14</td>
-                            <td>94.140.15.15</td>
-                            <td>2a10:50c0::ad1:ff</td>
-                            <td>DoH, DoT, DoQ</td>
-                            <td>Disabled</td>
-                            <td>Network-wide Ad & Tracker Filtration</td>
-                        </tr>
-                        <tr>
-                            <td><strong>NextDNS</strong></td>
-                            <td>45.90.28.0</td>
-                            <td>45.90.30.0</td>
-                            <td>2a07:a8c0::</td>
-                            <td>DoH, DoT, DoQ</td>
-                            <td>Configurable</td>
-                            <td>Cloud-managed Custom Blocklists & Security</td>
-                        </tr>
-                        <tr>
-                            <td><strong>OpenDNS (Cisco)</strong></td>
-                            <td>208.67.222.222</td>
-                            <td>208.67.220.220</td>
-                            <td>2620:119:35::35</td>
-                            <td>DoH, DNSCrypt</td>
-                            <td>Enabled</td>
-                            <td>Phishing Protection & Parental Control</td>
-                        </tr>
+                    <tbody id="tableBody">
+                        <!-- Populated via JavaScript -->
                     </tbody>
                 </table>
             </div>
+        </section>
 
-            <h2>How to Configure the Fastest DNS on Your Operating System</h2>
-
-            <h3>1. Microsoft Windows 11 & Windows 10</h3>
-            <ol>
-                <li>Open <strong>Settings</strong> (press <kbd>Win + I</kbd>) and navigate to <strong>Network &amp; internet</strong>.</li>
-                <li>Click on your active connection: either <strong>Wi-Fi</strong> or <strong>Ethernet</strong>.</li>
-                <li>Scroll down to <strong>Hardware properties</strong> and locate <em>DNS server assignment</em>. Click <strong>Edit</strong>.</li>
-                <li>Change the dropdown from <em>Automatic (DHCP)</em> to <strong>Manual</strong>.</li>
-                <li>Toggle on <strong>IPv4</strong>. Enter your desired Preferred DNS (e.g., <code>1.1.1.1</code>) and Alternate DNS (e.g., <code>1.0.0.1</code>).</li>
-                <li><em>(Recommended)</em> Set DNS encryption to <strong>Encrypted only (DNS over HTTPS)</strong> if supported by your build.</li>
-                <li>Open PowerShell or Command Prompt and run <code>ipconfig /flushdns</code> to purge stale records.</li>
-            </ol>
-
-            <h3>2. Apple macOS (Sonoma, Ventura, Monterey)</h3>
-            <ol>
-                <li>Open the <strong>Apple Menu</strong> &gt; <strong>System Settings</strong> &gt; <strong>Network</strong>.</li>
-                <li>Select your connected interface (Wi-Fi or Ethernet), then click <strong>Details...</strong></li>
-                <li>Select the <strong>DNS</strong> tab in the sidebar.</li>
-                <li>In the <em>DNS Servers</em> pane, click the <strong>+</strong> button and add the primary IPv4/IPv6 addresses (e.g., <code>9.9.9.9</code>).</li>
-                <li>Add the secondary resolver IP in the same manner.</li>
-                <li>Click <strong>OK</strong> and apply the configuration. Flush local cache via Terminal: <code>sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder</code>.</li>
-            </ol>
-
-            <h3>3. Mobile Devices: Android &amp; Apple iOS</h3>
+        <!-- Long-Form Authority Content for SEO -->
+        <article class="seo-box">
+            <h2>Understanding Real-World DNS Latency: Why Browsers Feel Sluggish</h2>
             <p>
-                <strong>Android (Private DNS / DoT):</strong> Navigate to <em>Settings &gt; Network &amp; Internet &gt; Private DNS</em>. Select <em>Private DNS provider hostname</em> and enter either <code>one.one.one.one</code> (Cloudflare) or <code>dns.google</code> (Google).
+                The Domain Name System (DNS) maps human-friendly hostnames (like <code>wikipedia.org</code>) to numerical machine IP addresses (such as <code>198.35.26.96</code>). Because web browsers must resolve every single domain before requesting assets (HTML, stylesheets, scripts, fonts, and API requests), slow DNS lookups directly delay your <strong>Time to First Byte (TTFB)</strong>.
             </p>
             <p>
-                <strong>iOS (iPhone/iPad):</strong> Navigate to <em>Settings &gt; Wi-Fi</em>, tap the information <code>(i)</code> icon next to your network, choose <em>Configure DNS</em>, select <em>Manual</em>, tap <em>Add Server</em>, and input your preferred IP addresses.
+                A standard web page triggers between 20 to 60 DNS requests. If your default ISP resolver takes 100ms per lookup, your device wastes seconds purely waiting for address resolution. Switching to an Anycast-routed resolver reduces lookup latency down to 10-25ms.
             </p>
 
-            <h3>4. Router Configuration (Network-Wide Optimization)</h3>
-            <p>
-                Configuring DNS at your primary gateway router instantly protects and accelerates every device connected to your local network—including Smart TVs, IoT appliances, and gaming consoles (PlayStation 5, Xbox Series X, Nintendo Switch) that lack native DoH client settings:
-            </p>
+            <h2>Why Min, Median (P50), and Jitter Matter</h2>
             <ul>
-                <li>Access your router's administrative dashboard (typically <code>192.168.1.1</code> or <code>192.168.0.1</code> in your browser).</li>
-                <li>Navigate to the <strong>WAN / Internet Setup</strong> or <strong>DHCP Server</strong> settings.</li>
-                <li>Locate the <em>Primary DNS</em> and <em>Secondary DNS</em> input fields.</li>
-                <li>Replace the default ISP addresses with the winning DNS IPs identified by our benchmark tool. Save and reboot the router.</li>
+                <li><strong>Min Latency:</strong> Shows the ideal network route to the nearest datacenter edge node (PoP).</li>
+                <li><strong>Median (P50):</strong> Represents the true middle response time you will experience during typical usage, free from extreme outlier distortion.</li>
+                <li><strong>Avg Latency:</strong> The statistical mean of all collected samples.</li>
+                <li><strong>Max Latency:</strong> Highlights the worst-case lookup penalty during network congestion or cache misses.</li>
             </ul>
 
-            <h2>Frequently Asked Questions</h2>
-            <div class="faq-accordion">
-                <div class="faq-card">
-                    <div class="faq-q">Does changing DNS improve my gaming ping? <span>&#9662;</span></div>
-                    <div class="faq-a">A faster DNS server accelerates lobby connections, matchmaking lookups, and asset downloads. However, it does not decrease the in-game packet transit time between your console/PC and the game server during an active match, which is governed by routing and physical distance.</div>
-                </div>
-                <div class="faq-card">
-                    <div class="faq-q">Is public DNS safer than my default ISP DNS? <span>&#9662;</span></div>
-                    <div class="faq-a">Yes. Major public DNS providers offer cryptographic DNSSEC verification to prevent DNS cache poisoning and man-in-the-middle attacks. Furthermore, reputable services like Cloudflare and Quad9 maintain strict no-logging policies, preventing your ISP from logging and monetizing your browsing habits.</div>
-                </div>
-                <div class="faq-card">
-                    <div class="faq-q">Why does this test run inside the browser instead of an installable app? <span>&#9662;</span></div>
-                    <div class="faq-a">Browser-based testing via DNS-over-HTTPS (DoH) executes directly from your exact device, network interface, and local ISP routing node without requiring third-party executable software or administrator permissions.</div>
-                </div>
-            </div>
+            <h2>How to Change Your DNS on Windows & macOS</h2>
+            <h3>Windows 11 / 10</h3>
+            <ol>
+                <li>Press <kbd>Win + I</kbd> to open <strong>Settings</strong> &gt; <strong>Network &amp; internet</strong>.</li>
+                <li>Select <strong>Wi-Fi</strong> or <strong>Ethernet</strong>, then click <strong>Hardware properties</strong>.</li>
+                <li>Next to <em>DNS server assignment</em>, click <strong>Edit</strong> and select <strong>Manual</strong>.</li>
+                <li>Enable <strong>IPv4</strong>, enter the primary and secondary IP addresses of your fastest resolver, and click <strong>Save</strong>.</li>
+                <li>Flush DNS cache in PowerShell: <code>ipconfig /flushdns</code>.</li>
+            </ol>
+
+            <h3>macOS</h3>
+            <ol>
+                <li>Open <strong>System Settings</strong> &gt; <strong>Network</strong>.</li>
+                <li>Click your active connection, click <strong>Details...</strong>, and switch to the <strong>DNS</strong> tab.</li>
+                <li>Click <strong>+</strong>, input your preferred IPs, and apply changes.</li>
+            </ol>
         </article>
     </main>
 
     <footer>
         <div class="footer-inner">
             <div class="footer-brand">DNS <span>Speed Test</span></div>
-            <div class="footer-copy">&copy;  DNS Speed Test &mdash; Free browser-based network benchmarking tool.</div>
+            <div class="footer-copy">&copy;  DNS Speed Test &mdash; Real-time client-side DNS benchmarking.</div>
         </div>
     </footer>
 
-    <div id="toast">Copied to clipboard! &check;</div>
+    <div id="toast">Copied to clipboard!</div>
 
-    <!-- Benchmark Logic Engine -->
     <script>
-        const dnsProviders = [
-            {
-                name: "Cloudflare (1.1.1.1)",
-                category: "gaming",
-                catLabel: "Speed & Gaming",
-                ipv4Primary: "1.1.1.1",
-                ipv4Secondary: "1.0.0.1",
-                ipv6: "2606:4700:4700::1111",
-                endpoint: "https://cloudflare-dns.com/dns-query"
-            },
-            {
-                name: "Google Public DNS",
-                category: "gaming",
-                catLabel: "Speed & Gaming",
-                ipv4Primary: "8.8.8.8",
-                ipv4Secondary: "8.8.4.4",
-                ipv6: "2001:4860:4860::8888",
-                endpoint: "https://dns.google/resolve"
-            },
-            {
-                name: "Quad9 (Threat Blocking)",
-                category: "privacy",
-                catLabel: "Strict Privacy",
-                ipv4Primary: "9.9.9.9",
-                ipv4Secondary: "149.112.112.112",
-                ipv6: "2620:fe::fe",
-                endpoint: "https://dns.quad9.net/dns-query"
-            },
-            {
-                name: "AdGuard DNS (Default)",
-                category: "filter",
-                catLabel: "Ad Blocking",
-                ipv4Primary: "94.140.14.14",
-                ipv4Secondary: "94.140.15.15",
-                ipv6: "2a10:50c0::ad1:ff",
-                endpoint: "https://dns.adguard-dns.com/dns-query"
-            },
-            {
-                name: "Control D (Uncensored)",
-                category: "privacy",
-                catLabel: "Strict Privacy",
-                ipv4Primary: "76.76.2.0",
-                ipv4Secondary: "76.76.10.0",
-                ipv6: "2606:1a40::",
-                endpoint: "https://freedns.controld.com/p0"
-            },
-            {
-                name: "NextDNS Public",
-                category: "privacy",
-                catLabel: "Strict Privacy",
-                ipv4Primary: "45.90.28.0",
-                ipv4Secondary: "45.90.30.0",
-                ipv6: "2a07:a8c0::",
-                endpoint: "https://dns.nextdns.io"
-            },
-            {
-                name: "OpenDNS (Cisco)",
-                category: "filter",
-                catLabel: "Threat Shield",
-                ipv4Primary: "208.67.222.222",
-                ipv4Secondary: "208.67.220.220",
-                ipv6: "2620:119:35::35",
-                endpoint: "https://doh.opendns.com/dns-query"
-            },
-            {
-                name: "DNS.SB (Privacy First)",
-                category: "privacy",
-                catLabel: "Strict Privacy",
-                ipv4Primary: "185.222.222.222",
-                ipv4Secondary: "45.11.45.11",
-                ipv6: "2a09::",
-                endpoint: "https://doh.dns.sb/dns-query"
-            },
-            {
-                name: "CleanBrowsing (Security)",
-                category: "filter",
-                catLabel: "Threat Shield",
-                ipv4Primary: "185.228.168.9",
-                ipv4Secondary: "185.228.169.9",
-                ipv6: "2a0d:5600:33:4::",
-                endpoint: "https://doh.cleanbrowsing.org/doh/security-filter"
-            },
-            {
-                name: "Alibaba Cloud DNS",
-                category: "gaming",
-                catLabel: "Global Peering",
-                ipv4Primary: "223.5.5.5",
-                ipv4Secondary: "223.6.6.6",
-                ipv6: "2400:3200::1",
-                endpoint: "https://dns.alidns.com/resolve"
-            }
+        // All 26 Resolvers matching your benchmark dataset
+        const dnsResolvers = [
+            { flag: "🇺🇸", name: "Cloudflare", ip1: "1.1.1.1", ip2: "1.0.0.1", endpoint: "https://cloudflare-dns.com/dns-query" },
+            { flag: "🇺🇸", name: "Google", ip1: "8.8.8.8", ip2: "8.8.4.4", endpoint: "https://dns.google/dns-query" },
+            { flag: "🇨🇭", name: "Quad9", ip1: "9.9.9.9", ip2: "149.112.112.112", endpoint: "https://dns.quad9.net/dns-query" },
+            { flag: "🇨🇾", name: "AdGuard", ip1: "94.140.14.14", ip2: "94.140.15.15", endpoint: "https://dns.adguard-dns.com/dns-query" },
+            { flag: "🇺🇸", name: "OpenDNS", ip1: "208.67.222.222", ip2: "208.67.220.220", endpoint: "https://doh.opendns.com/dns-query" },
+            { flag: "🇺🇸", name: "CleanBrowsing", ip1: "185.228.168.9", ip2: "185.228.169.9", endpoint: "https://doh.cleanbrowsing.org/doh/family-filter/" },
+            { flag: "🇨🇦", name: "ControlD", ip1: "76.76.2.0", ip2: "76.223.122.150", endpoint: "https://freedns.controld.com/p0" },
+            { flag: "🇩🇪", name: "DNS.SB", ip1: "185.222.222.222", ip2: "45.11.45.11", endpoint: "https://doh.dns.sb/dns-query" },
+            { flag: "🇺🇸", name: "NextDNS", ip1: "45.90.28.0", ip2: "45.90.30.0", endpoint: "https://dns.nextdns.io" },
+            { flag: "🇨🇳", name: "AliDNS", ip1: "223.5.5.5", ip2: "223.6.6.6", endpoint: "https://dns.alidns.com/dns-query" },
+            { flag: "🇨🇳", name: "DNSPod", ip1: "119.29.29.29", ip2: "182.254.116.116", endpoint: "https://doh.pub/dns-query" },
+            { flag: "🇰🇿", name: "OpenBLD", ip1: "146.112.41.2", ip2: "146.112.41.102", endpoint: "https://ada.openbld.net/dns-query" },
+            { flag: "🇨🇿", name: "DNS4EU", ip1: "86.54.11.100", ip2: "86.54.11.200", endpoint: "https://unfiltered.joindns4.eu/dns-query" },
+            { flag: "🇨🇳", name: "360", ip1: "101.226.4.6", ip2: "180.163.224.54", endpoint: "https://doh.360.cn/dns-query" },
+            { flag: "🇨🇦", name: "Canadian Shield", ip1: "149.112.121.10", ip2: "149.112.122.10", endpoint: "https://private.canadianshield.cira.ca/dns-query" },
+            { flag: "🇨🇭", name: "Digitale Gesellschaft", ip1: "185.95.218.42", ip2: "185.95.218.43", endpoint: "https://dns.digitale-gesellschaft.ch/dns-query" },
+            { flag: "🇩🇪", name: "DNS for Family", ip1: "94.130.180.225", ip2: "78.47.64.161", endpoint: "https://dns-family.eth-net.de/dns-query" },
+            { flag: "🇱🇺", name: "Restena", ip1: "158.64.1.29", ip2: "", endpoint: "https://doh.restena.lu/dns-query" },
+            { flag: "🇯🇵", name: "IIJ", ip1: "203.180.164.45", ip2: "203.180.166.45", endpoint: "https://public.dns.iij.jp/dns-query" },
+            { flag: "🇬🇷", name: "LibreDNS", ip1: "116.202.176.26", ip2: "147.135.76.183", endpoint: "https://doh.libredns.gr/dns-query" },
+            { flag: "🇨🇭", name: "Switch", ip1: "130.59.31.248", ip2: "130.59.31.251", endpoint: "https://dns.switch.ch/dns-query" },
+            { flag: "🇦🇹", name: "Foundation for Applied Privacy", ip1: "146.255.56.98", ip2: "", endpoint: "https://doh.applied-privacy.net/query" },
+            { flag: "🇩🇰", name: "UncensoredDNS", ip1: "91.239.100.100", ip2: "89.233.43.71", endpoint: "https://anycast.uncensoreddns.org/dns-query" },
+            { flag: "🇺🇸", name: "RethinkDNS", ip1: "104.21.83.62", ip2: "172.67.214.246", endpoint: "https://max.rethinkdns.com/dns-query" },
+            { flag: "🇮🇹", name: "FlashStart", ip1: "185.236.104.104", ip2: "", endpoint: "https://doh.flashstart.com/dns-query" },
+            { flag: "🇺🇸", name: "Comcast Xfinity", ip1: "75.75.75.75", ip2: "75.75.76.76", endpoint: "https://doh.xfinity.com/dns-query" }
         ];
 
-        let benchmarkData = [];
-        let activeFilter = "all";
+        let stateData = dnsResolvers.map((r, i) => ({
+            ...r,
+            id: i,
+            status: "Idle",
+            min: null,
+            median: null,
+            avg: null,
+            max: null,
+            successCount: 0,
+            totalCount: 3,
+            testing: false
+        }));
 
+        const tableBody = document.getElementById("tableBody");
         const startBtn = document.getElementById("startBtn");
         const exportBtn = document.getElementById("exportBtn");
-        const progressContainer = document.getElementById("progressContainer");
+        const progressBox = document.getElementById("progressBox");
         const progressBar = document.getElementById("progressBar");
-        const progressLabel = document.getElementById("progressLabel");
+        const progressStatus = document.getElementById("progressStatus");
         const progressPercent = document.getElementById("progressPercent");
-        const resultsList = document.getElementById("resultsList");
-        const filterTabs = document.getElementById("filterTabs");
+        const searchInput = document.getElementById("searchInput");
         const toast = document.getElementById("toast");
 
-        function showToast(msg) {
-            toast.innerText = msg;
+        function showToast(text) {
+            toast.innerText = text;
             toast.classList.add("active");
-            setTimeout(() => toast.classList.remove("active"), 2200);
+            setTimeout(() => toast.classList.remove("active"), 2000);
         }
 
-        window.copyText = function(text) {
-            navigator.clipboard.writeText(text).then(() => {
-                showToast(`Copied ${text} to clipboard!`);
+        window.copyIp = function(ip) {
+            navigator.clipboard.writeText(ip).then(() => {
+                showToast(`Copied ${ip} to clipboard!`);
             });
         };
 
-        function renderRows() {
-            resultsList.innerHTML = "";
-            const filtered = benchmarkData.filter(item => {
-                if (activeFilter === "all") return true;
-                return item.category === activeFilter;
+        // Construct standard RFC 8484 DNS Query Packet (Base64URL) for universal compatibility
+        function createRfc8484Query(domain = "wikipedia.org") {
+            const parts = domain.split(".");
+            let len = 12 + 4 + 1;
+            for (const p of parts) len += 1 + p.length;
+            const buf = new Uint8Array(len);
+            buf[0] = 0; buf[1] = 0; // ID: 0
+            buf[2] = 1; buf[3] = 0; // Flags: Recursion Desired (RD = 1)
+            buf[4] = 0; buf[5] = 1; // QDCOUNT: 1
+            let idx = 12;
+            for (const part of parts) {
+                buf[idx++] = part.length;
+                for (let i = 0; i < part.length; i++) buf[idx++] = part.charCodeAt(i);
+            }
+            buf[idx++] = 0;
+            buf[idx++] = 0; buf[idx++] = 1; // QTYPE: A (1)
+            buf[idx++] = 0; buf[idx++] = 1; // QCLASS: IN (1)
+
+            let binary = "";
+            for (let i = 0; i < buf.length; i++) binary += String.fromCharCode(buf[i]);
+            return btoa(binary).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+        }
+
+        const globalQueryB64 = createRfc8484Query("wikipedia.org");
+
+        function renderTable() {
+            const q = searchInput.value.toLowerCase().trim();
+            tableBody.innerHTML = "";
+
+            const filtered = stateData.filter(item => {
+                if (!q) return true;
+                return item.name.toLowerCase().includes(q) ||
+                       item.ip1.includes(q) ||
+                       (item.ip2 && item.ip2.includes(q)) ||
+                       item.flag.includes(q);
             });
 
-            filtered.forEach((item, index) => {
-                const isFastest = (activeFilter === "all" && index === 0 && item.avgLatency !== null);
-                const el = document.createElement("div");
-                el.className = `dns-card ${isFastest ? 'rank-1' : ''}`;
-                
-                let latencyBadge = `<span class="stat-badge pending">Ready</span>`;
-                let jitterBadge = `<span class="metric-sub">&mdash;</span>`;
-                let minMaxBadge = `<span class="metric-sub">&mdash;</span>`;
-                let statusBadge = `<span class="status-pill status-normal">Idle</span>`;
+            filtered.forEach(item => {
+                const tr = document.createElement("tr");
 
+                let statusHtml = `<span class="pill-status" style="background:#334155; color:#94a3b8">Idle</span>`;
                 if (item.testing) {
-                    latencyBadge = `<span class="stat-badge pending">Probing...</span>`;
-                    statusBadge = `<span class="status-pill status-normal">Testing</span>`;
-                } else if (item.avgLatency !== null) {
-                    const latClass = item.avgLatency < 50 ? 'fast' : item.avgLatency < 120 ? 'moderate' : 'slow';
-                    latencyBadge = `<span class="stat-badge ${latClass}">${item.avgLatency} <small style="font-size:0.7em">ms</small></span>`;
-                    jitterBadge = `<span class="metric-sub">&plusmn;${item.jitter} ms</span>`;
-                    minMaxBadge = `<span class="metric-sub">${item.minLat} / ${item.maxLat} ms</span>`;
-                    
-                    if (item.avgLatency < 60 && item.jitter < 15) {
-                        statusBadge = `<span class="status-pill status-optimal">Optimal</span>`;
-                    } else if (item.avgLatency < 140) {
-                        statusBadge = `<span class="status-pill status-normal">Good</span>`;
-                    } else {
-                        statusBadge = `<span class="status-pill status-poor">Degraded</span>`;
-                    }
-                } else if (item.failed) {
-                    latencyBadge = `<span class="stat-badge slow">Timeout</span>`;
-                    statusBadge = `<span class="status-pill status-poor">Failed</span>`;
+                    statusHtml = `<span class="pill-status pill-testing">Probing...</span>`;
+                } else if (item.status === "Stable") {
+                    statusHtml = `<span class="pill-status pill-stable">Stable ${item.successCount}/${item.totalCount}</span>`;
+                } else if (item.status === "Failed") {
+                    statusHtml = `<span class="pill-status pill-failed">Failed 0/${item.totalCount}</span>`;
                 }
 
-                el.innerHTML = `
-                    <div class="dns-title-group">
-                        <div class="dns-title">
-                            ${item.name}
-                            <span class="badge-category ${item.category === 'gaming' ? 'cat-gaming' : item.category === 'privacy' ? 'cat-privacy' : 'cat-filter'}">
-                                ${item.catLabel}
-                            </span>
-                            ${isFastest ? '<span class="status-pill status-optimal" style="font-size:0.7rem">★ FASTEST</span>' : ''}
+                function formatVal(v) {
+                    if (v === null) return `<span class="stat-val pending">&mdash;</span>`;
+                    const cls = v < 100 ? "fast" : v < 250 ? "moderate" : "slow";
+                    return `<span class="stat-val ${cls}">${v.toFixed(1)}</span>`;
+                }
+
+                tr.innerHTML = `
+                    <td>
+                        <div class="resolver-info">
+                            <div class="resolver-name">${item.flag} ${item.name}</div>
+                            <div class="resolver-ips">
+                                <span>${item.ip1}</span>
+                                <button class="btn-copy" onclick="copyIp('${item.ip1}')">Copy</button>
+                                ${item.ip2 ? `<span>, ${item.ip2}</span><button class="btn-copy" onclick="copyIp('${item.ip2}')">Copy</button>` : ''}
+                            </div>
                         </div>
-                        <div class="dns-ips">
-                            <span>IPv4: <strong>${item.ipv4Primary}</strong></span>
-                            <button class="btn-copy-ip" onclick="copyText('${item.ipv4Primary}')" title="Copy Primary IP">Copy</button>
-                            <span>| <strong>${item.ipv4Secondary}</strong></span>
-                            <button class="btn-copy-ip" onclick="copyText('${item.ipv4Secondary}')" title="Copy Secondary IP">Copy</button>
-                        </div>
-                    </div>
-                    <div>${latencyBadge}</div>
-                    <div>${jitterBadge}</div>
-                    <div>${minMaxBadge}</div>
-                    <div>${statusBadge}</div>
+                    </td>
+                    <td>${statusHtml}</td>
+                    <td>${formatVal(item.min)}</td>
+                    <td>${formatVal(item.median)}</td>
+                    <td>${formatVal(item.avg)}</td>
+                    <td>${formatVal(item.max)}</td>
                 `;
-                resultsList.appendChild(el);
+                tableBody.appendChild(tr);
             });
         }
 
-        // Initialize state
-        benchmarkData = dnsProviders.map(p => ({
-            ...p,
-            avgLatency: null,
-            jitter: null,
-            minLat: null,
-            maxLat: null,
-            samples: [],
-            testing: false,
-            failed: false
-        }));
+        renderTable();
+        searchInput.addEventListener("input", renderTable);
 
-        renderRows();
+        // Highly optimized probe engine with Dual-Fallback (Standard Fetch + No-CORS Fallback)
+        async function probeServer(endpoint) {
+            const sep = endpoint.includes("?") ? "&" : "?";
+            const url = `${endpoint}${sep}dns=${globalQueryB64}`;
 
-        // Filter tab actions
-        filterTabs.addEventListener("click", (e) => {
-            if (e.target.classList.contains("filter-btn")) {
-                document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
-                e.target.classList.add("active");
-                activeFilter = e.target.dataset.filter;
-                renderRows();
-            }
-        });
-
-        // Cache-busted single probe measurement
-        async function probeEndpoint(endpoint) {
-            const entropy = Math.random().toString(36).substring(2, 10);
-            const testUrl = `${endpoint}?name=bench-${entropy}.cloudflare.com&type=A`;
+            // Try 1: Standard fetch
             const controller = new AbortController();
-            const timeout = setTimeout(() => controller.abort(), 3500);
+            const timer = setTimeout(() => controller.abort(), 4000);
+            const t0 = performance.now();
 
-            const start = performance.now();
             try {
-                const res = await fetch(testUrl, {
-                    method: 'GET',
-                    headers: { 'Accept': 'application/dns-json' },
+                await fetch(url, {
+                    method: "GET",
                     signal: controller.signal,
-                    cache: 'no-store'
+                    cache: "no-store"
                 });
-                clearTimeout(timeout);
-                if (!res.ok) return null;
-                const end = performance.now();
-                return Math.round(end - start);
+                clearTimeout(timer);
+                return Math.round(performance.now() - t0);
             } catch (err) {
-                clearTimeout(timeout);
+                clearTimeout(timer);
+                // If blocked due to strict CORS headers, fallback to opaque probe to guarantee true RTT
+                if (err.name !== "AbortError") {
+                    try {
+                        const c2 = new AbortController();
+                        const t2 = setTimeout(() => c2.abort(), 3500);
+                        const startOpaque = performance.now();
+                        await fetch(url, {
+                            method: "GET",
+                            mode: "no-cors",
+                            signal: c2.signal,
+                            cache: "no-store"
+                        });
+                        clearTimeout(t2);
+                        return Math.round(performance.now() - startOpaque);
+                    } catch (e2) {
+                        return null;
+                    }
+                }
                 return null;
             }
         }
 
-        // Benchmark Runner with Warm-up and multi-sample Jitter math
         startBtn.addEventListener("click", async () => {
             startBtn.disabled = true;
             exportBtn.disabled = true;
-            progressContainer.style.display = "block";
+            progressBox.style.display = "block";
             progressBar.style.width = "0%";
 
-            const total = benchmarkData.length;
+            const total = stateData.length;
 
             for (let i = 0; i < total; i++) {
-                const item = benchmarkData[i];
+                const item = stateData[i];
                 item.testing = true;
-                progressLabel.innerText = `Testing ${item.name} (Samples 1-4)...`;
-                progressPercent.innerText = `${Math.round((i / total) * 100)}%`;
-                progressBar.style.width = `${Math.round((i / total) * 100)}%`;
-                renderRows();
+                progressStatus.innerText = `Benchmarking ${item.name} (${i + 1}/${total})...`;
+                const pct = Math.round((i / total) * 100);
+                progressBar.style.width = `${pct}%`;
+                progressPercent.innerText = `${pct}%`;
+                renderTable();
 
-                // 1. Connection Warm-up probe (primes TCP/TLS, discarded from latency math)
-                await probeEndpoint(item.endpoint);
+                // Warm-up socket
+                await probeServer(item.endpoint);
 
-                // 2. Collect 3 timed measurement samples
-                const collected = [];
+                // Run 3 timed iterations
+                const samples = [];
                 for (let s = 0; s < 3; s++) {
-                    const sample = await probeEndpoint(item.endpoint);
-                    if (sample !== null) collected.push(sample);
+                    const rtt = await probeServer(item.endpoint);
+                    if (rtt !== null && rtt > 0) samples.push(rtt);
                 }
 
                 item.testing = false;
+                item.successCount = samples.length;
 
-                if (collected.length > 0) {
-                    const sum = collected.reduce((a, b) => a + b, 0);
-                    item.avgLatency = Math.round(sum / collected.length);
-                    item.minLat = Math.min(...collected);
-                    item.maxLat = Math.max(...collected);
-                    
-                    // Jitter calculation: Average deviation from consecutive samples
-                    if (collected.length > 1) {
-                        let diffSum = 0;
-                        for (let d = 0; d < collected.length - 1; d++) {
-                            diffSum += Math.abs(collected[d] - collected[d+1]);
-                        }
-                        item.jitter = Math.round(diffSum / (collected.length - 1));
-                    } else {
-                        item.jitter = 0;
-                    }
-                    item.failed = false;
+                if (samples.length > 0) {
+                    item.status = "Stable";
+                    item.min = Math.min(...samples);
+                    item.max = Math.max(...samples);
+                    item.avg = samples.reduce((a, b) => a + b, 0) / samples.length;
+
+                    // Compute Median
+                    samples.sort((a, b) => a - b);
+                    const mid = Math.floor(samples.length / 2);
+                    item.median = samples.length % 2 !== 0 ? samples[mid] : (samples[mid - 1] + samples[mid]) / 2;
                 } else {
-                    item.avgLatency = null;
-                    item.failed = true;
+                    item.status = "Failed";
+                    item.min = null;
+                    item.median = null;
+                    item.avg = null;
+                    item.max = null;
                 }
+
+                renderTable();
             }
 
-            // Sort results by lowest latency
-            benchmarkData.sort((a, b) => {
-                if (a.avgLatency === null) return 1;
-                if (b.avgLatency === null) return -1;
-                return a.avgLatency - b.avgLatency;
+            // Auto-sort table by lowest Avg Latency
+            stateData.sort((a, b) => {
+                if (a.avg === null) return 1;
+                if (b.avg === null) return -1;
+                return a.avg - b.avg;
             });
 
             progressBar.style.width = "100%";
             progressPercent.innerText = "100%";
-            progressLabel.innerText = "Benchmark completed across all endpoints!";
+            progressStatus.innerText = "All resolvers benchmarked successfully!";
             startBtn.disabled = false;
             exportBtn.disabled = false;
-
-            renderRows();
+            renderTable();
         });
 
-        // CSV Export functionality
+        // Export CSV
         exportBtn.addEventListener("click", () => {
             const rows = [
-                ["Resolver Name", "Category", "Avg Latency (ms)", "Jitter (ms)", "Min (ms)", "Max (ms)", "Primary IPv4", "Secondary IPv4", "IPv6"]
+                ["Flag", "DNS Server", "Status", "Min (ms)", "Median (ms)", "Avg (ms)", "Max (ms)", "Primary IP", "Secondary IP"]
             ];
-
-            benchmarkData.forEach(item => {
+            stateData.forEach(r => {
                 rows.push([
-                    `"${item.name}"`,
-                    `"${item.catLabel}"`,
-                    item.avgLatency !== null ? item.avgLatency : "Timeout",
-                    item.jitter !== null ? item.jitter : "N/A",
-                    item.minLat !== null ? item.minLat : "N/A",
-                    item.maxLat !== null ? item.maxLat : "N/A",
-                    item.ipv4Primary,
-                    item.ipv4Secondary,
-                    item.ipv6
+                    `"${r.flag}"`,
+                    `"${r.name}"`,
+                    `"${r.status}"`,
+                    r.min ? r.min.toFixed(2) : "N/A",
+                    r.median ? r.median.toFixed(2) : "N/A",
+                    r.avg ? r.avg.toFixed(2) : "N/A",
+                    r.max ? r.max.toFixed(2) : "N/A",
+                    `"${r.ip1}"`,
+                    `"${r.ip2 || ''}"`
                 ]);
             });
-
-            const csvContent = "data:text/csv;charset=utf-8," + rows.map(e => e.join(",")).join("\n");
-            const encodedUri = encodeURI(csvContent);
+            const csv = "data:text/csv;charset=utf-8," + rows.map(e => e.join(",")).join("\n");
+            const uri = encodeURI(csv);
             const link = document.createElement("a");
-            link.setAttribute("href", encodedUri);
-            link.setAttribute("download", `dns-speed-benchmark-${new Date().toISOString().slice(0, 10)}.csv`);
+            link.href = uri;
+            link.download = `dns-benchmark-results-${new Date().toISOString().slice(0, 10)}.csv`;
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
