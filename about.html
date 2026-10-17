@@ -3,47 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us & Testing Methodology | DNS Speed Test</title>
-    <meta name="description" content="Discover our scientific, client-side testing methodology for benchmarking DNS latency, jitter, and Anycast network performance.">
+    <title>About Us & Testing Methodology | DNS Speed Test Benchmark</title>
+    <meta name="description" content="Learn about our client-side DNS benchmarking architecture, RFC 8484 DoH testing methodology, and our commitment to objective internet performance metrics.">
     <link rel="canonical" href="https://yourusername.github.io/about.html">
+
+    <!-- Open Graph -->
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="About Us & Methodology | DNS Speed Test">
+    <meta property="og:description" content="Discover our scientific, client-side testing methodology for benchmarking DNS latency, jitter, and Anycast routing.">
+    <meta property="og:url" content="https://yourusername.github.io/about.html">
+
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "AboutPage",
+          "name": "About DNS Speed Test",
+          "description": "Overview of the DNS Speed Test project, its architectural principles, and client-side testing methodology.",
+          "url": "https://yourusername.github.io/about.html"
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://yourusername.github.io/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "About Us",
+              "item": "https://yourusername.github.io/about.html"
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
     <style>
         :root {
             --primary: #0284c7;
+            --primary-dark: #0369a1;
+            --accent: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
             --bg-page: #f8fafc;
             --surface: #ffffff;
+            --surface-hover: #f1f5f9;
             --border: #e2e8f0;
             --text-title: #0f172a;
             --text-body: #334155;
             --text-muted: #64748b;
             --radius-lg: 16px;
+            --radius-md: 10px;
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.04);
         }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
-        body { background-color: var(--bg-page); color: var(--text-body); line-height: 1.8; min-height: 100vh; display: flex; flex-direction: column; }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+        body { background-color: var(--bg-page); color: var(--text-body); line-height: 1.7; min-height: 100vh; display: flex; flex-direction: column; }
 
         header { background: var(--surface); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; backdrop-filter: blur(8px); }
-        .nav-wrap { max-width: 1100px; margin: 0 auto; padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; }
+        .nav-wrap { max-width: 1180px; margin: 0 auto; padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; }
         .brand { font-size: 1.35rem; font-weight: 800; color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; }
         .brand svg { width: 28px; height: 28px; fill: var(--primary); }
         .nav-links { display: flex; gap: 1.5rem; list-style: none; }
-        .nav-links a { text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 0.95rem; }
+        .nav-links a { text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 0.95rem; transition: color 0.2s; }
         .nav-links a:hover, .nav-links a.active { color: var(--primary); }
 
-        main { max-width: 920px; width: 100%; margin: 2.5rem auto; padding: 0 1.25rem; flex: 1; }
-        .hero { text-align: center; margin-bottom: 2rem; }
-        .hero h1 { font-size: 2.4rem; color: var(--text-title); margin-bottom: 0.5rem; font-weight: 800; }
-        .hero p { color: var(--text-muted); font-size: 1.1rem; }
+        main { max-width: 960px; width: 100%; margin: 2rem auto; padding: 0 1.25rem; flex: 1; }
+        
+        .hero { text-align: center; margin-bottom: 2.2rem; }
+        .hero-badge { display: inline-flex; align-items: center; gap: 0.4rem; background: #e0f2fe; color: #0369a1; font-size: 0.82rem; font-weight: 700; padding: 0.3rem 0.85rem; border-radius: 9999px; margin-bottom: 0.8rem; border: 1px solid #bae6fd; }
+        .hero h1 { font-size: 2.4rem; font-weight: 900; color: var(--text-title); margin-bottom: 0.5rem; letter-spacing: -0.5px; }
+        .hero p { color: var(--text-muted); font-size: 1.1rem; max-width: 720px; margin: 0 auto; }
 
-        .content-box { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2.8rem; margin-bottom: 2rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.03); }
-        .content-box h2 { font-size: 1.6rem; color: var(--text-title); margin: 2rem 0 0.8rem; border-left: 4px solid var(--primary); padding-left: 0.8rem; }
-        .content-box p { margin-bottom: 1.25rem; font-size: 1.05rem; text-align: justify; }
-        .content-box ul { padding-left: 1.8rem; margin-bottom: 1.5rem; }
-        .content-box li { margin-bottom: 0.6rem; font-size: 1rem; }
+        .content-box { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2.8rem 2.4rem; margin-bottom: 3.5rem; box-shadow: var(--shadow); }
+        .content-box h2 { font-size: 1.65rem; color: var(--text-title); margin: 2.2rem 0 0.9rem; border-left: 5px solid var(--primary); padding-left: 0.9rem; }
+        .content-box p { margin-bottom: 1.25rem; font-size: 1.02rem; text-align: justify; }
+        .content-box ul { padding-left: 2rem; margin-bottom: 1.5rem; }
+        .content-box li { margin-bottom: 0.65rem; font-size: 1.01rem; }
+        .content-box code { background: #f1f5f9; padding: 0.2rem 0.45rem; border-radius: 4px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; color: #0369a1; font-size: 0.9em; }
 
-        footer { background: var(--surface); border-top: 1px solid var(--border); padding: 2rem 1.5rem; margin-top: auto; }
-        .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
-        .footer-brand { font-size: 1.1rem; font-weight: 700; color: var(--text-title); }
+        .highlight-box { background: #f0fdf4; border-left: 4px solid var(--accent); padding: 1.2rem 1.4rem; border-radius: 0 var(--radius-md) var(--radius-md) 0; margin: 1.8rem 0; }
+        .highlight-box p { margin: 0; color: #166534; font-weight: 600; font-size: 0.98rem; }
+
+        footer { background: var(--surface); border-top: 1px solid var(--border); padding: 2.2rem 1.5rem; margin-top: auto; }
+        .footer-inner { max-width: 1180px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .footer-brand { font-size: 1.15rem; font-weight: 800; color: var(--text-title); }
         .footer-brand span { color: var(--primary); }
         .footer-copy { color: var(--text-muted); font-size: 0.88rem; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .content-box { padding: 1.8rem 1.4rem; }
+        }
     </style>
 </head>
 <body>
@@ -64,30 +123,36 @@
 
     <main>
         <div class="hero">
+            <div class="hero-badge">ℹ️ Transparency & Architecture</div>
             <h1>About Our Benchmarking Architecture</h1>
-            <p>Empowering internet users worldwide with transparent, client-side network diagnostics.</p>
+            <p>Empowering internet users worldwide with transparent, client-side network diagnostics and unbiased DNS telemetry.</p>
         </div>
 
         <article class="content-box">
             <h2>Our Core Mission</h2>
             <p>
-                <strong>DNS Speed Test</strong> was founded on a simple principle: internet users deserve total transparency into their network routing performance. The overwhelming majority of internet consumers remain locked into the default recursive resolvers operated by their local Internet Service Providers (ISPs). These ISP servers are routinely under-provisioned, vulnerable to DNS cache poisoning attacks, and frequently used to collect and monetize browsing records.
+                <strong>DNS Speed Test</strong> was created to address a critical blind spot in personal network performance: default ISP resolver degradation. The majority of internet subscribers remain connected to recursive resolvers provided by their local Internet Service Providers. These servers are routinely saturated, geographically suboptimal, vulnerable to DNS hijacking, and frequently used to compile commercial browsing profiles.
             </p>
+
+            <div class="highlight-box">
+                <p>We believe everyday users deserve access to the same high-precision network diagnostic tools used by network administrators, directly inside their browsers without installing software.</p>
+            </div>
 
             <h2>Scientific Client-Side Methodology</h2>
             <p>
-                Unlike server-side synthetic testing tools that measure resolver latency from static cloud datacenters (such as AWS us-east-1), our benchmarking tool executes <strong>100% inside your local web browser</strong>:
+                Unlike synthetic benchmarking utilities that execute tests from distant cloud datacenters (like AWS, Azure, or GCP), our tool executes <strong>100% inside your local web browser</strong>:
             </p>
             <ul>
-                <li><strong>Local Peering Accuracy:</strong> Probes originate directly from your physical device through your local ISP, reflecting authentic transit and peering hops.</li>
-                <li><strong>TCP/TLS Warm-Up Protocol:</strong> We execute an un-timed pre-flight probe to establish TLS handshakes and socket reuse, eliminating cold-start bias from final latency calculations.</li>
-                <li><strong>Anti-Cache Randomization:</strong> Every query dispatches an un-cached random challenge subdomain (e.g., <code>bench-x8a92.cloudflare.com</code>) to force authentic round-trip resolution.</li>
-                <li><strong>Jitter & Statistical Stability:</strong> We measure consecutive probe delta variations, highlighting servers prone to latency spikes.</li>
+                <li><strong>Local Peering Accuracy:</strong> Probes originate directly from your physical connection through your local ISP, ensuring that routing hops and geographic latency are genuinely measured.</li>
+                <li><strong>RFC 8484 Binary Wireformat:</strong> We construct standard binary DNS query packets using the <code>?dns=</code> wireformat standard, ensuring native compatibility across all global public resolvers.</li>
+                <li><strong>TCP/TLS Socket Priming:</strong> We perform an initial warmup probe prior to measurement to establish TLS negotiation, eliminating cold-start bias from final latency metrics.</li>
+                <li><strong>Anti-Cache Randomization:</strong> Every query dispatches an un-cached challenge to bypass intermediate proxies and force real-world authoritative transit.</li>
+                <li><strong>Comprehensive Latency Metrics:</strong> We present Min, Median (P50), Average, and Max values to expose resolver jitter and network variance.</li>
             </ul>
 
-            <h2>Independent & Unbiased Testing</h2>
+            <h2>Independent & Non-Commercial Neutrality</h2>
             <p>
-                We do not accept financial compensation, paid placements, or sponsorship from any DNS provider. All benchmark results are ranked strictly on measured Round-Trip Times (RTT) in milliseconds.
+                We maintain total technical and financial independence. We do not accept sponsored rankings, affiliate payouts, or preferential indexing from any DNS provider. Rankings are generated mathematically based purely on Round-Trip Time (RTT) in milliseconds.
             </p>
         </article>
     </main>
@@ -95,7 +160,7 @@
     <footer>
         <div class="footer-inner">
             <div class="footer-brand">DNS <span>Speed Test</span></div>
-            <div class="footer-copy">&copy;  DNS Speed Test &mdash; Free browser-based network benchmarking tool.</div>
+            <div class="footer-copy">&copy;  DNS Speed Test &mdash; Real-time client-side DNS benchmarking.</div>
         </div>
     </footer>
 
