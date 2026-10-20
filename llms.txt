@@ -1,25 +1,51 @@
-# DNS Speed Test & Latency Benchmark
+# DNS Speed Test — Live Public Resolver Benchmark
 
-> DNS Speed Test is a neutral, client-side web utility designed to benchmark Round-Trip Time (RTT latency), jitter, and reliability across leading global Anycast public DNS resolvers directly from a user's browser.
+> DNS Speed Test is a high-speed, zero-dependency browser diagnostic tool that benchmarks live round-trip latency and response times from the user's current ISP and location to the world's leading public DNS-over-HTTPS (DoH) resolvers.
 
-## Core Capabilities
-- **Real-Time Latency Testing**: Accurately measures DNS lookup delays in milliseconds (ms) using modern DNS-over-HTTPS (DoH) REST APIs.
-- **Jitter & Consistency Analysis**: Computes statistical latency variation across successive queries to identify connection instability and packet drops.
-- **Anti-Cache Methodology**: Employs unique high-entropy random subdomains for every probe, bypassing browser and intermediary proxy caches for genuine measurement.
-- **1-Click IP Setup**: Instant copying of IPv4 and IPv6 addresses for effortless manual operating system or router configuration.
-- **Export Capabilities**: Direct CSV export of benchmark results for network troubleshooting and reporting.
+## Project Overview
 
-## Key Public Resolvers Monitored
-- **Cloudflare DNS (1.1.1.1 / 1.0.0.1)**: Lowest-latency public resolver, zero logs, ideal for gaming and responsive browsing.
-- **Google Public DNS (8.8.8.8 / 8.8.4.4)**: Enterprise Anycast infrastructure, highly reliable, supports EDNS Client Subnet (ECS).
-- **Quad9 (9.9.9.9 / 149.112.112.112)**: Swiss-based non-profit resolver with built-in malicious domain and phishing protection.
-- **AdGuard DNS (94.140.14.14 / 94.140.15.15)**: Automated blocking of trackers, intrusive advertising, and malicious hosts.
-- **Control D (76.76.2.0 / 76.76.10.0)**: Modern uncensored and customizable DNS service.
-- **NextDNS (45.90.28.0 / 45.90.30.0)**: Cloud-managed security and custom privacy filters.
-- **OpenDNS / Cisco Umbrella (208.67.222.222 / 208.67.220.220)**: Robust family safety and anti-fraud resolution.
-- **DNS.SB & CleanBrowsing**: Privacy-first and child-safe filtered resolvers.
+- **Canonical URL**: https://ahmedelazabdev.github.io/dnsspeedtest/
+- **Author**: Ahmed Elazab
+- **Technology**: Native JavaScript (Fetch API with AbortController, `performance.now()`)
+- **Protocol Tested**: DNS over HTTPS (DoH) / JSON DNS query endpoints
+- **Performance**: Zero external fonts, 100% Lighthouse Score, Zero Cumulative Layout Shift (CLS = 0.000).
 
-## Architectural Pages
-- [DNS Benchmark Tool](https://yourusername.github.io/): The main interactive speed test and comprehensive network configuration guide.
-- [Testing Methodology & About Us](https://yourusername.github.io/about.html): Technical documentation explaining client-side DoH probes, pre-flight warm-up, and statistical formulas.
-- [Privacy Policy](https://yourusername.github.io/privacy.html): Zero-logging architecture disclosure, GDPR compliance, and client-side isolation terms.
+## Tested Public DNS Providers
+
+1. **Cloudflare**:
+   - Primary IPv4: `1.1.1.1`
+   - Secondary IPv4: `1.0.0.1`
+   - Key Focus: Ultra-low latency Anycast routing, gaming performance, zero logging.
+   - DoH Endpoint: `https://cloudflare-dns.com/dns-query`
+
+2. **Google Public DNS**:
+   - Primary IPv4: `8.8.8.8`
+   - Secondary IPv4: `8.8.4.4`
+   - Key Focus: Global Anycast footprint, high uptime, DDoS protection.
+   - DoH Endpoint: `https://dns.google/resolve`
+
+3. **Quad9**:
+   - Primary IPv4: `9.9.9.9`
+   - Secondary IPv4: `149.112.112.112`
+   - Key Focus: Real-time threat, malware, and phishing domain blocking; Swiss privacy jurisdiction.
+   - DoH Endpoint: `https://dns.quad9.net/dns-query`
+
+4. **AdGuard DNS**:
+   - Primary IPv4: `94.140.14.14`
+   - Secondary IPv4: `94.140.15.15`
+   - Key Focus: Network-wide ad, tracker, and telemetric blocking.
+   - DoH Endpoint: `https://dns.adguard-dns.com/resolve`
+
+5. **Control D**:
+   - Primary IPv4: `76.76.2.0`
+   - Secondary IPv4: `76.76.10.0`
+   - Key Focus: High-speed unfiltered modern resolver.
+   - DoH Endpoint: `https://freedns.controld.com/p0`
+
+## Benchmark Methodology
+
+1. **Cache Busting**: Generates unique, non-repeating subdomains per test to bypass intermediate ISP DNS caching and test true upstream resolve times.
+2. **Multi-Round Averaging**: Runs two consecutive rounds (Cold + Warm lookup) per resolver and calculates the median latency.
+3. **Dynamic Sorting**: Automatically re-orders the leaderboard from lowest to highest ping (ms), crowning the fastest resolver for the user's specific network.
+
+ 
