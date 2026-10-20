@@ -4,28 +4,11 @@
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
-    <!-- Homepage / Main Benchmark Utility -->
-    <url>
-        <loc>https://yourusername.github.io/</loc>
-        <lastmod>2026-10-17</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>1.0</priority>
-    </url>
-
-    <!-- About & Testing Methodology -->
-    <url>
-        <loc>https://yourusername.github.io/about.html</loc>
-        <lastmod>2026-10-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-
-    <!-- Privacy Policy & Terms -->
-    <url>
-        <loc>https://yourusername.github.io/privacy.html</loc>
-        <lastmod>2026-10-17</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.5</priority>
-    </url>
-
+  <!-- DNS Speed Test Tool -->
+  <url>
+    <loc>https://ahmedelazabdev.github.io/dnsspeedtest/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
 </urlset>
